@@ -1,4 +1,11 @@
 using namespace std;
+// A. Theatre Square
+// problemset/problem/1/A?mobile=false
+int main(){
+    unsigned long long n, m, a; cin >> n >> m >> a;
+    cout << ceil((double)m / a) * ceil((double)n / a);
+}
+using namespace std;
 // contest/4/problem/C
 // C. Registration system
 int main(){
