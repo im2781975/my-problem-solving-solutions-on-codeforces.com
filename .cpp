@@ -164,7 +164,16 @@ int main() {
     }
     cout << abs(x - 2) + abs(y - 2);
 }
-
+using namespace std;
+// A. Fancy Fence
+// contest/270/problem/A
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int x; cin >> x;
+        (360 % (180 - x)) ? cout << "No\n" : cout << "Yes\n";
+    }
+}
 using namespace std;
 // A. Word Capitalization
 // problemset/problem/281/A
