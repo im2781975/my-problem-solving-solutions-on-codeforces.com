@@ -234,6 +234,21 @@ int main(){
     cout << ans + res;
 }
 using namespace std;
+// A. Keyboard
+// contest/474/problem/A
+int main(){
+    char shift;
+    string str, res; 
+    cin >> shift >> str;
+    const string keyboard = "qwertyuiopasdfghjkl;zxcvbnm,./";
+    res.resize(str.size());
+    for(int i = 0; i < str.size(); i++){
+        int idx = keyboard.find(str[i]);
+        res[i] = (shift == 'R') ? keyboard.at(idx - 1) : keyboard.at(idx + 1);
+    }
+    cout << res;
+}
+using namespace std;
 // problemset/problem/617/A
 // A. Elephant
 int main(){
