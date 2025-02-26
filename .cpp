@@ -83,7 +83,7 @@ int main() {
     }
 }
 using namespace std;
-// contest/102/problem/B?mobile=false
+// contest/102/problem/B
 // B. Sum of Digits
 int main(){
     string str; cin >> str;
@@ -96,6 +96,15 @@ int main(){
         ++step;
     }
     cout << step;
+}
+using namespace std;
+// A. Nearly Lucky Number
+// problemset/problem/110/A
+int main(){
+    string str; cin >> str;
+    int x = count(str.begin(), str.end(), '4');
+    int y = count(str.begin(), str.end(), '7')
+    ((x + y) == 4) ? cout << "YES" : cout << "NO";
 }
 using namespace std;
 // A. Petya and Strings
