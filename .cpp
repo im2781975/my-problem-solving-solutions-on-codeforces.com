@@ -136,6 +136,20 @@ int main(){
     cout << 0;
 }
 using namespace std;
+// problemset/problem/116/A
+// A. Tram
+int main(){
+    int n; cin >> n;
+    int cap = 0, remain = 0;
+    for(int i = 0; i < n; i++){
+        int a, b; cin >> a >> b;
+        remain -= a;
+        remain += b;
+        cap = max(cap, remain);
+    }
+    cout << cap;
+}
+using namespace std;
 // A. String Task
 // problemset/problem/118/A
 int main(){
