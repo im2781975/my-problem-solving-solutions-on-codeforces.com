@@ -368,6 +368,18 @@ int main(){
     }
 }
 using namespace std;
+// A. In Search of an Easy Problem
+// contest/1030/problem/A
+int main(){
+    int n; cin >> n;
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        sum += x;
+    }
+    (sum) ? cout << "HARD" : cout << "EASY";
+}
+using namespace std;
 // problemset/problem/1204/B
 // B. Mislove Has Lost an Array
 int main(){
