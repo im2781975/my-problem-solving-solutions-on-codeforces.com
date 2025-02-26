@@ -82,7 +82,21 @@ int main() {
             cout << ch << endl;
     }
 }
-
+using namespace std;
+// contest/102/problem/B?mobile=false
+// B. Sum of Digits
+int main(){
+    string str; cin >> str;
+    int step = 0;
+    while(str.length() > 1){
+        int sum = 0;
+        for(int i = 0; i < str.size(); i++)
+            sum += str[i] - '0';
+        str = to_string(sum);
+        ++step;
+    }
+    cout << step;
+}
 using namespace std;
 // A. Petya and Strings
 // problemset/problem/112/A
