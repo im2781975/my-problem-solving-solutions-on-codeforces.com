@@ -508,6 +508,20 @@ int main(){
     }
 }
 using namespace std;
+// A. Candies and Two Sisters
+// problemset/problem/1335/A
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int x; cin >> x;
+        if(x > 2){
+            if(x & 1) cout << (x >> 1) << "\n";
+            else cout << (x >> 1) - 1 << "\n";
+        }
+        else cout << 0;
+    }
+}
+using namespace std;
 // C. Dominant Piranha
 // problemset/problem/1433/C
 int main(){
