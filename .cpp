@@ -482,6 +482,19 @@ int main(){
     cout << maxDist;
 }
 using namespace std;
+// B. Magic Stick
+// contest/1257/problem/B
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int x, y; cin >> x >> y;
+        if(x == 1 && y == 1) cout << "YES\n";
+        else if((x == 2 || x == 3) && y < 4) cout << "YES\n";
+        else if(x > 3) cout << "YES\n";
+        else cout << "No\n";
+    }
+}
+using namespace std;
 // C. Dominant Piranha
 // problemset/problem/1433/C
 int main(){
