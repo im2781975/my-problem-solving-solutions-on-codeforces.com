@@ -470,6 +470,18 @@ int main(){
     ((open == 0 && close == 0) || (open == 1 && close == 1)) ? cout << "Yes" : cout << "No";
 }
 using namespace std;
+// contest/1257/problem/A
+// A. Two Rival Students
+int main(){
+    int t; cin >> t; 
+    while(t--){
+        int n, x, a, b; cin >> n >> x >> a >> b;
+        int curDist = abs(a - b);
+        int maxDist = min(n - 1, curDist + x);
+    }
+    cout << maxDist;
+}
+using namespace std;
 // C. Dominant Piranha
 // problemset/problem/1433/C
 int main(){
