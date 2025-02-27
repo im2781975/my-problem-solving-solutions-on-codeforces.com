@@ -161,6 +161,15 @@ int main(){
             cout << '.' << str[i]; 
         }
     }
+    /**/
+    string res;
+    string vowel = "aeiouyAEIOUY";
+    for(int i = 0; i < str.size(); i++){
+        if (vowel.find(str[i]) == string::npos){ 
+            res.append(".").append(1, tolower(str[i]));  
+        }
+    }
+    cout << res;
 }
 using namespace std;
 // A. Next Round
