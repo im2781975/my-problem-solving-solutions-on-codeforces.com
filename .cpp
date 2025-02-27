@@ -495,6 +495,19 @@ int main(){
     }
 }
 using namespace std;
+// problemset/problem/1328/A
+// A. Divisibility Problem
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int x, y; cin >> x >> y;
+        if(x % y == 0)
+            cout << 0;
+        else
+            cout << y - (x % y);
+    }
+}
+using namespace std;
 // C. Dominant Piranha
 // problemset/problem/1433/C
 int main(){
