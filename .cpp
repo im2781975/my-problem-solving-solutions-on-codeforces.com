@@ -172,6 +172,19 @@ int main(){
     cout << res;
 }
 using namespace std;
+// problemset/problem/122/A
+// A. Lucky Division
+int main(){
+    int n; cin >> n;
+    bool flag = 0;
+    int arr[12] = {4, 7, 47, 74, 44, 444, 447, 474, 477, 777, 774, 744};
+    for(int i = 0; i < 12; i++){
+        if(n % arr[i] == 0)
+            flag = 1;
+    }
+    (flag) ? cout << "YES" : cout << "NO";
+}
+using namespace std;
 // A. Next Round
 // problemset/problem/158/A
 int main(){
