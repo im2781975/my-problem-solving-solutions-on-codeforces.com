@@ -521,6 +521,30 @@ int main(){
         else cout << 0;
     }
 }
+//https://codeforces.com/problemset/problem/1352/A
+// Sum of Round Numbers
+using namespace std;
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int n; cin >> n;
+        vector <int> vec;
+        int j = 0;
+        while(n > 0){
+            if(n % 10){
+                int res = pow(10, j);
+                res *= n % 10;
+                vec.push_back(res);
+            }
+            n /= 10; j++;
+        }
+        int len = vec.size();
+        cout << len << "\n";
+        for(int i = 0; i < len; i++)
+            cout << vec[i] << " ";
+        cout << "\n";
+    }
+}
 using namespace std;
 // C. Dominant Piranha
 // problemset/problem/1433/C
