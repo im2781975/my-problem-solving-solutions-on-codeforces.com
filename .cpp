@@ -546,6 +546,23 @@ int main(){
     }
 }
 using namespace std;
+// https://codeforces.com/problemset/problem/1367/A
+// Short Substrings
+int main(){
+    int t; cin >> t;
+    while(t--){
+        string str; cin >> str;
+        int len = str.length();
+        string res = "";
+        for(int i = 0; i < len; i++){
+            if(i % 2 == 0)
+                res += str[i];
+        }
+        res += str[len - 1];
+        cout << res << "\n";
+    }
+}
+using namespace std;
 // C. Dominant Piranha
 // problemset/problem/1433/C
 int main(){
