@@ -571,6 +571,27 @@ int main(){
     }
 }
 using namespace std;
+// https://codeforces.com/problemset/problem/1409/A
+// A. Yet Another Two Integers Problem
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int a, b; cin >> a >> b;
+        if(a == b) cout << "0";
+        else{
+            int diff = abs(a - b);
+            int arr[11] = {};
+            int res = 0;
+            for(int i = 10; i > 0; i--){
+                arr[i] = diff / i;
+                diff -= arr[i] * i;
+                res += arr[i];
+            }
+            cout << res;
+        }
+    }
+}
+using namespace std;
 // C. Dominant Piranha
 // problemset/problem/1433/C
 int main(){
