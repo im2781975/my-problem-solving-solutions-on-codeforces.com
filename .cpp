@@ -61,6 +61,14 @@ int main(){
     cout << cnt * 2;
 }
 using namespace std;
+http://codeforces.com/contest/41/problem/A
+// A. Translation
+int main(){
+    string str, ing; cin >> str >> ing;
+    reverse(str.begin(), str.end());
+    (str == ing) ? cout << "Yes" : cout << "No";
+}
+using namespace std;
 // A. Domino piling
 // problemset/problem/50/A
 int main(){
