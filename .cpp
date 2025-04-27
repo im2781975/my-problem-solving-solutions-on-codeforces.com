@@ -193,6 +193,17 @@ int main(){
     (flag) ? cout << "YES" : cout << "NO";
 }
 using namespace std;
+// http://codeforces.com/problemset/problem/141/A
+// A. Amusing Joke
+int main(){
+    string st, ri, ng, res; cin >> st >> ri >> ng;
+    string res += st + ri;
+    sort(res.begin(), res.end());
+    sort(ng.begin(), ng.end());
+    if(res == ng) cout << "Yes";
+    else cout << "No";
+}
+using namespace std;
 // A. Next Round
 // problemset/problem/158/A
 int main(){
