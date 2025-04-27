@@ -204,6 +204,29 @@ int main(){
     else cout << "No";
 }
 using namespace std;
+// http://codeforces.com/problemset/problem/144/A
+// A. Arrival of the General
+int main(){
+    int n; cin >> n;
+    int maxval = 0, maxIdx = 0;
+    int minval = 0, minIdx = 1000;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x > maxval){
+            maxIdx = i;
+            maxval = x;
+        }
+        if(x <= minval){
+            minIdx = i;
+            minval = x;
+        }
+    }
+    if(maxIdx > minIdx)
+        cout << (maxIdx - 1) + (n - minIdx) - 1;
+    else
+        cout << (maxIdx - 1) + (n - minIdx);
+}
+using namespace std;
 // A. Next Round
 // problemset/problem/158/A
 int main(){
