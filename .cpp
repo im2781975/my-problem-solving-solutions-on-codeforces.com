@@ -226,6 +226,18 @@ int main(){
     else
         cout << (maxIdx - 1) + (n - minIdx);
 }
+using namespace std
+http://codeforces.com/problemset/problem/148/A
+// A. Insomnia cure
+int main(){
+    int k, l, m, n, d; cin >> k >> l >> m >> n >> d;
+    vector <bool> damaged(d, false);
+    for(int i = 1; i <= d; i++){
+        if(i % k == 0 || i % l == 0 || i % m == 0 || i % n == 0)
+            damaged[i - 1] = true;
+    }
+    cout << count(damaged.begin(), damaged.end(), true);
+}
 using namespace std;
 // A. Next Round
 // problemset/problem/158/A
