@@ -251,6 +251,25 @@ int main() {
     cout << toasts / n << endl;
 }
 using namespace std;
+http://codeforces.com/contest/155/problem/A
+// A. I_love_%username%
+int main(){
+    int n; cin >> n;
+    int cnt = 0;
+    int mini; cin >> mini;
+    int maxi = mini;
+    for(int i = 1; i < n; i++){
+        int x; cin >> x;
+        if(x > maxi){
+            maxi = x; ++cnt;
+        }
+        else if(x < mini){
+            mini = x; ++cnt;
+        }
+    }
+    cout << cnt;
+}
+using namespace std;
 // A. Next Round
 // problemset/problem/158/A
 int main(){
