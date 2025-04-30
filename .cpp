@@ -239,6 +239,18 @@ int main(){
     cout << count(damaged.begin(), damaged.end(), true);
 }
 using namespace std;
+http://codeforces.com/problemset/problem/151/A
+// A. Soft Drinking
+int main() {
+    int n, k, l, c, d, p, nl, np;
+    cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+    int total_drink = (k * l) / nl; 
+    int total_slices = c * d;      
+    int total_salt = p / np;        
+    int toasts = min({total_drink, total_slices, total_salt});
+    cout << toasts / n << endl;
+}
+using namespace std;
 // A. Next Round
 // problemset/problem/158/A
 int main(){
