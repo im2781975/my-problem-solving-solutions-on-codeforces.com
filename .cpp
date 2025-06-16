@@ -284,6 +284,21 @@ int main(){
     cout << res;
 }
 using namespace std;
+http://codeforces.com/contest/158/problem/A
+// 158 A. Next Round
+int main(){
+    int n, k; cin >> n >> k;
+    int arr[n], cnt = 0;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int ref = arr[k - 1];
+    for(int i = 0; i < n; i++){
+        if(arr[i] >= ref && arr[i])
+            ++cnt;
+    }
+    cout << cnt;
+}
+using namespace std;
 // problemset/problem/231/A
 // A. Team
 int main(){
