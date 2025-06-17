@@ -299,6 +299,28 @@ int main(){
     cout << cnt;
 }
 using namespace std;
+http://codeforces.com/contest/160/problem/A
+// A.Twins
+int arr[105], ray[105];
+int main(){
+    int n; cin >> n;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    ray[0] = arr[0];
+    for(int i = 1; i < n; i++)
+        ray[i] = ray[i - 1] + arr[i];
+    int res = 0;
+    for(int i = n - 1; i >= 0; i--){
+        int left = ray[i - 1];
+		int right = ray[n - 1] - ray[i - 1];
+ 		if(right > left){
+			cout << n - i;
+			break;
+ 		}
+    }
+}
+using namespace std;
 // problemset/problem/231/A
 // A. Team
 int main(){
