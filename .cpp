@@ -346,6 +346,26 @@ int main(){
     }
 }
 using namespace std;
+// A. Mountain Scenery
+https://codeforces.com/contest/218/problem/A
+const int MAX = 105;
+int height[MAX];
+int main(){
+    int n, k; cin >> n >> k;
+    int total = 2 * n + 1;
+    for(int i = 0; i < total; ++i)
+        cin >> height[i];
+    for(int i = 1; i < total - 1 && k > 0; i += 2){
+        if(height[i] > height[i - 1] + 1 && height[i] > height[i + 1] + 1) {
+            --height[i];
+            --k;
+        }
+    }
+    for (int i = 0; i < total; ++i)
+        cout << height[i] << " ";
+    cout << "\n";
+}
+using namespace std;
 // problemset/problem/231/A
 // A. Team
 int main(){
