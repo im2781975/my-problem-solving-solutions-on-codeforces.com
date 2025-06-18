@@ -366,6 +366,25 @@ int main(){
     cout << "\n";
 }
 using namespace std;
+//B.Effective Approach
+http://codeforces.com/problemset/problem/227/B
+int main(){
+    map <int, int> position;
+    long long frontSteps = 0, backSteps = 0;
+    int n; cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int val; cin >> val;
+        position[val] = i;
+    }
+    int q; cin >> q;
+    for (int i = 0; i < q; ++i) {
+        int query; cin >> query;
+        frontSteps += position[query] + 1;
+        backSteps += n - position[query];
+    }
+    cout << frontSteps << " " << backSteps << "\n";
+}
+using namespace std;
 // problemset/problem/231/A
 // A. Team
 int main(){
