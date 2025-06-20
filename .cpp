@@ -426,6 +426,25 @@ int main(){
     cout << solved;
 }
 using namespace std;
+http://codeforces.com/contest/233/problem/A
+// A - Perfect Permutation
+int main() {
+    int n;
+    cin >> n;
+
+    // If n is odd, no perfect permutation exists
+    if (n % 2 == 1) {
+        cout << -1 << endl;
+    } else {
+        // Generate a perfect permutation by swapping adjacent elements
+        for (int i = 1; i <= n; i += 2) {
+            cout << i + 1 << " " << i << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+using namespace std;
 // A. Beautiful Matrix
 // problemset/problem/263/A
 int main() {
