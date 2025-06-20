@@ -385,6 +385,32 @@ int main(){
     cout << frontSteps << " " << backSteps << "\n";
 }
 using namespace std;
+http://codeforces.com/contest/230/problem/A
+// A. Dragons
+int main() {
+    int s, n;
+    cin >> s >> n; // s = initial strength, n = number of dragons
+    vector<pair<int, int>> dragons(n);
+    // Read each dragon's strength and bonus
+    for (int i = 0; i < n; ++i)
+        cin >> dragons[i].first >> dragons[i].second;
+    // Sort dragons by their strength (ascending order)
+    sort(dragons.begin(), dragons.end());
+    // Try to fight each dragon in order
+    for (int i = 0; i < n; ++i) {
+        int dragon_strength = dragons[i].first;
+        int bonus = dragons[i].second;
+        if (s > dragon_strength)
+            s += bonus; // Kirito defeats the dragon and gains bonus
+        else {
+            cout << "NO" << endl;
+            return 0;
+        }
+    }
+    cout << "YES" << endl;
+    return 0;
+}
+using namespace std;
 // problemset/problem/231/A
 // A. Team
 int main(){
