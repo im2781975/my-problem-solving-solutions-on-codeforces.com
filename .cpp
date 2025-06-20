@@ -445,6 +445,28 @@ int main() {
     return 0;
 }
 using namespace std;
+// A. Cupboards
+// http://codeforces.com/contest/248/problem/A
+int main() {
+    int n;
+    cin >> n;
+    int leftOpen = 0, rightOpen = 0;
+    for (int i = 0; i < n; ++i) {
+        int left, right;
+        cin >> left >> right;
+        if (left) ++leftOpen;
+        if (right) ++rightOpen;
+    }
+    int leftClosed = n - leftOpen;
+    int rightClosed = n - rightOpen;
+
+    // For each side, choose the minimal number of switches (either open or close)
+    int minLeftOperations = min(leftOpen, leftClosed);
+    int minRightOperations = min(rightOpen, rightClosed);
+    cout << (minLeftOperations + minRightOperations) << endl;
+}
+
+using namespace std;
 // A. Beautiful Matrix
 // problemset/problem/263/A
 int main() {
