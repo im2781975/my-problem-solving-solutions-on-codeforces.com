@@ -67,6 +67,34 @@ int main(){
     (even == 1) ? cout << evenIdx : cout << oddIdx;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/25/A
+// A. IQ test
+int main() {
+	int n; cin >> n;
+	int arr[n];
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+		arr[i] = arr[i] % 2;
+	}
+	int one = count(arr, arr + n, 1);
+	if (one > n - one) {
+		for (int i = 0; i < n; i++) {
+			if (!arr[i]) {
+				cout << i + 1;
+				break;
+			}
+		}
+	} else{
+		for (int i = 0; i < n; i++) {
+			if (arr[i]) {
+				cout << i + 1;
+				break;
+			}
+		}
+	}
+	return 0;
+}
+using namespace std;
 // problemset/problem/26/B
 // B. Regular Bracket Sequence
 int main(){
