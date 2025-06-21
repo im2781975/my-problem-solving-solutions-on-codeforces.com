@@ -512,6 +512,20 @@ int main() {
     cout << abs(x - 2) + abs(y - 2);
 }
 using namespace std;
+http://codeforces.com/contest/266/problem/A
+// A. Stones on the Table
+int main(){
+    int n; cin >> n;
+    string str; cin >> str;
+    int cnt = 0;
+    for(int i = 1; i < n; i++){
+        if(str[i - 1] == str[i])
+            cnt++;
+    }
+    cout << cnt;
+  	return 0;
+}
+using namespace std;
 // A. Fancy Fence
 // contest/270/problem/A
 int main(){
