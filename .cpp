@@ -526,6 +526,22 @@ int main(){
   	return 0;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/266/B
+// Queue at the School
+int main() {
+    int n, t; cin >> n >> t;
+    string s; cin >> s;
+    for (int i = 0; i < t; ++i) {
+        for (int j = 1; j < n; ++j) {
+            if (s[j - 1] == 'B' && s[j] == 'G') {
+                swap(s[j - 1], s[j]);
+                ++j; // Skip the next index to avoid double swap
+            }
+        }
+    }
+    cout << s;
+}
+using namespace std;
 // A. Fancy Fence
 // contest/270/problem/A
 int main(){
