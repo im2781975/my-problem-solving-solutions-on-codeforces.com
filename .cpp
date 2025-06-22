@@ -536,6 +536,33 @@ int main(){
     }
 }
 using namespace std;
+http://codeforces.com/problemset/problem/271/A
+// Beautiful Year
+bool isBeautiful(int n) {
+    string s = to_string(n);
+    set<char> digits(s.begin(), s.end());
+    return digits.size() == 4;
+}
+bool isBeautiful(int n){
+	string str = to_string(n);
+	int dig1 = count(str.begin(), str.end(),str[0]);
+	int dig2 = count(str.begin(), str.end(), str[1]);
+	int dig3 = count(str.begin(), str.end(), str[2]);
+	int dig4 = count(str.begin(), str.end(), str[3]);
+	if((dig1 == 1)&&(digt2=1)&&(digt3==1)&&(digt4==1))
+		return 1;
+    if((dig1 == 1) && (dig2 == 1) && (dig3 == 1) && (dig4 == 1)) return 1;
+	else return 0;
+}
+int main() {
+    int n; cin >> n;
+    ++n;
+    while(!isBeautiful(n))
+        ++n;
+    cout << n;
+    return 0;
+}
+using namespace std;
 // A. Word Capitalization
 // problemset/problem/281/A
 int main() {
