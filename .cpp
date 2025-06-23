@@ -604,6 +604,26 @@ int main(){
     cout << cnt;
 }
 using namespace std;
+http://codeforces.com/contest/294/problem/A
+// A. Shaass and Oskols
+int main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int m; cin >> m;
+    for(int i = 0; i < m; i++){
+        int x, y; cin >> x >> y;
+        int r = arr[x - 1] - y;
+        int l = y - 1;
+	if(x - 1 >= 1) arr[x - 2] += l;
+	if(x + 1 <= n) arr[x] += r;
+	arr[x - 1] = 0;
+    }
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+}
+using namespace std;
 // Valera and Plates
 // problemset/problem/369/A _given n dishes, where each dish requires either a bowl or a plate 
 // have a limited number of bowls and plates.determine how many dishes cannot be served due to a lack of resources.
