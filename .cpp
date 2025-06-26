@@ -604,6 +604,19 @@ int main(){
     cout << cnt;
 }
 using namespace std;
+// http://codeforces.com/contest/289/problem/A
+// A - Polo the Penguin and Segments
+int main() {
+    int n, k; cin >> n >> k;
+    int sum = 0;
+    for (int i = 0; i < n; ++i) {
+        int l, r; cin >> l >> r;
+        sum += (r - l + 1);
+    }
+    cout << (k - (sum % k)) % k << endl;
+    return 0;
+}
+using namespace std;
 http://codeforces.com/contest/294/problem/A
 // A. Shaass and Oskols
 int main(){
