@@ -637,6 +637,17 @@ int main(){
         cout << arr[i] << " ";
 }
 using namespace std;
+http://codeforces.com/problemset/problem/318/A
+// A. Even Odds
+int main() {
+    long long n, k; cin >> n >> k;
+    long long mid = (n + 1) / 2;
+    if (k <= mid)
+        cout << 2 * k - 1;
+    else
+        cout << 2 * (k - mid);
+}
+using namespace std;
 // Valera and Plates
 // problemset/problem/369/A _given n dishes, where each dish requires either a bowl or a plate 
 // have a limited number of bowls and plates.determine how many dishes cannot be served due to a lack of resources.
