@@ -114,6 +114,26 @@ int main(){
     cout << cnt * 2;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/32/B
+// B. Borze
+int main() {
+    string s, result; cin >> s;
+    int len = s.length();
+    for (int i = 0; i < len; ++i) {
+        if (s[i] == '.')
+            result += '0';
+        else if (i + 1 < len && s[i] == '-' && s[i + 1] == '.') {
+            result += '1';
+            ++i;
+        } 
+        else if (i + 1 < len && s[i] == '-' && s[i + 1] == '-'){
+            result += '2';
+            ++i;
+        }
+    }
+    cout << result;
+}
+using namespace std;
 http://codeforces.com/contest/41/problem/A
 // A. Translation
 int main(){
