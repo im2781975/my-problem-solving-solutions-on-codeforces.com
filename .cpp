@@ -668,6 +668,22 @@ int main() {
         cout << 2 * (k - mid);
 }
 using namespace std;
+http://codeforces.com/problemset/problem/337/A
+// 337A - Puzzles
+int main() {
+    int n, m; cin >> n >> m;
+    int puzzles[m];
+    for (int i = 0; i < m; ++i)
+        cin >> puzzles[i];
+    sort(puzzles, puzzles + m);
+    int min_diff = puzzles[n - 1] - puzzles[0];
+    for (int i = n; i < m; ++i)
+        min_diff = min(min_diff, puzzles[i] - puzzles[i - n + 1]);
+    cout << min_diff << endl;
+    return 0;
+}
+
+using namespace std;
 // Valera and Plates
 // problemset/problem/369/A _given n dishes, where each dish requires either a bowl or a plate 
 // have a limited number of bowls and plates.determine how many dishes cannot be served due to a lack of resources.
