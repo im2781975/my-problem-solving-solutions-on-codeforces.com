@@ -682,6 +682,23 @@ int main() {
     cout << min_diff << endl;
     return 0;
 }
+using namespace std;
+http://codeforces.com/problemset/problem/337/A
+// 337A - Puzzles
+int main() {
+    int n, m; cin >> n >> m;
+    vector<int> puzzles(m);
+    for (int i = 0; i < m; ++i)
+        cin >> puzzles[i];
+    sort(puzzles.begin(), puzzles.end());
+    int min_diff = puzzles[n - 1] - puzzles[0];
+    for (int i = 0; i <= m - n; ++i) {
+        int current_diff = puzzles[i + n - 1] - puzzles[i];
+        min_diff = min(min_diff, current_diff);
+    }
+    cout << min_diff << endl;
+    return 0;
+}
 
 using namespace std;
 // Valera and Plates
