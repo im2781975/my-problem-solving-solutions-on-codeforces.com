@@ -699,7 +699,24 @@ int main() {
     cout << min_diff << endl;
     return 0;
 }
-
+using namespace std;
+http://codeforces.com/problemset/problem/339/B
+// 339B - Xenia and Ringroad
+int main() {
+    int n, m; cin >> n >> m;
+    int current = 1;
+    unsigned long long moves = 0;
+    for (int i = 0; i < m; ++i) {
+        int target; cin >> target;
+        if (target >= current)
+            moves += target - current;
+        else
+            moves += n - (current - target);
+        current = target;
+    }
+    cout << moves << endl;
+    return 0;
+}
 using namespace std;
 // Valera and Plates
 // problemset/problem/369/A _given n dishes, where each dish requires either a bowl or a plate 
