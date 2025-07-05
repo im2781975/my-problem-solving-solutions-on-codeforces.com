@@ -717,6 +717,28 @@ int main() {
     cout << moves << endl;
     return 0;
 }
+http://codeforces.com/contest/363/problem/B
+// B. Fence
+using namespace std;
+int main() {
+    int n, k; cin >> n >> k;
+    vector<long long> prefix(n + 1, 0);
+    for (int i = 1; i <= n; ++i) {
+        int height; cin >> height;
+        prefix[i] = prefix[i - 1] + height;
+    }
+    int min_index = 0;
+    long long min_sum = LLONG_MAX;
+    for (int i = 0; i <= n - k; ++i) {
+        long long sum = prefix[i + k] - prefix[i];
+        if (sum < min_sum) {
+            min_sum = sum;
+            min_index = i;
+        }
+    }
+    cout << (min_index + 1) << endl;
+}
+
 using namespace std;
 // Valera and Plates
 // problemset/problem/369/A _given n dishes, where each dish requires either a bowl or a plate 
