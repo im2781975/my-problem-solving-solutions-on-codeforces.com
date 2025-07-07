@@ -738,7 +738,53 @@ int main() {
     }
     cout << (min_index + 1) << endl;
 }
-
+http://codeforces.com/contest/365/problem/A
+// 365A. Good Number
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+int main() {
+    int n, k; cin >> n >> k;
+    int good_count = 0;
+    for (int i = 0; i < n; ++i) {
+        string number;
+        cin >> number;
+        vector <bool> digit_present(10, false);
+        for (char ch : number)
+            digit_present[ch - '0'] = true;
+        bool is_good = true;
+        for (int d = 0; d <= k; ++d) {
+            if (!digit_present[d]) {
+                is_good = false;
+                break;
+            }
+        }
+        if (is_good)
+            ++good_count;
+    }
+    cout << good_count << endl;
+    return 0;
+}
+using namespace std;
+int arr[10];
+int main() {
+	int n, k; cin >> n >> k;
+	vector <string> vect;
+	for(int i = 0; i < n; i++){
+		string str; cin >> str;
+		vect.push_back(str);
+	}
+	int res = 0;
+	for(int i = 0; i < n; i++){
+		int val = 0;
+		for(int j = 0; j <= k; j++){
+		    if(vec[i].find(to_string(j)) != -1) ++val;
+		}
+ 		if(val == k + 1) ++res;
+	}
+	cout << res;
+}
 using namespace std;
 // Valera and Plates
 // problemset/problem/369/A _given n dishes, where each dish requires either a bowl or a plate 
