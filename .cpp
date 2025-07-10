@@ -887,7 +887,65 @@ int main() {
         cout << "Impossible" << endl;
     return 0;
 }
-
+using namespace std;
+http://codeforces.com/contest/404/problem/A
+A. Valera and X
+char arr[305][305];
+int main(){
+    int n, cnt = 0; cin >> n;
+    set <char> se, se2;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++)
+            cin >> arr[i][j];
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(i == j || j == n - 1 - i){
+                ++cnt;
+                se2.insert(arr[i][j]);
+            }
+            else
+                se.insert(arr[i][j]);
+        }
+    }
+    char x = *se.begin();
+    char y = *se2.begin();
+    if(se.size() == se2.size() && se.size() == 1 && count == (2*n) - 1 && x != y)
+        cout<<"YES";
+    else cout << "NO";
+}
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    char matrix[305][305];
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            cin >> matrix[i][j];
+    char diag_char = matrix[0][0];      
+    char non_diag_char = matrix[0][1];
+    if (diag_char == non_diag_char) {
+        cout << "NO\n";
+        return 0;
+    }
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i == j || j == n - 1 - i) {
+                if (matrix[i][j] != diag_char) {
+                    cout << "NO\n";
+                    return 0;
+                }
+            } else {
+                if (matrix[i][j] != non_diag_char) {
+                    cout << "NO\n";
+                    return 0;
+                }
+            }
+        }
+    }
+    cout << "YES\n";
+    return 0;
+}
 using namespace std;
 // A. Keyboard
 // contest/474/problem/A
