@@ -838,6 +838,29 @@ int main(){
     cout << ans + res;
 }
 using namespace std;
+http://codeforces.com/contest/381/problem/A
+// A. Sereja and Dima
+int main() {
+    int n; cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    int l = 0, r = n - 1;
+    int sscore = 0, dscore = 0;
+    for (int turn = 0; turn < n; ++turn) {
+        int chosen;
+        if (arr[l] >= arr[r])
+            chosen = arr[l++];
+        else
+            chosen = arr[r--];
+        if (turn % 2 == 0)
+            sscore += chosen; 
+        else
+            dscore += chosen;
+    }
+    cout << sscore << " " << dscore << endl;
+}
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
