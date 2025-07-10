@@ -786,6 +786,24 @@ int main() {
 	cout << res;
 }
 using namespace std;
+// 365A. Good Number 
+http://codeforces.com/contest/365/problem/A
+int main(){
+    int n, k; cin >> n >> k;
+    int res = 0;
+    for(int i = 0; i < n; i++){
+        string str; cin >> str;
+        int len = str.length();
+        int cnt = 0;
+        for(int j = 0; j <= k; j++){
+            if(str.find('0' + j) != -1)
+                ++cnt;
+        }
+        if(cnt == k + 1) res++;
+    }
+    cout << res;
+}
+using namespace std;
 // Valera and Plates
 // problemset/problem/369/A _given n dishes, where each dish requires either a bowl or a plate 
 // have a limited number of bowls and plates.determine how many dishes cannot be served due to a lack of resources.
