@@ -947,6 +947,25 @@ int main() {
     return 0;
 }
 using namespace std;
+http://codeforces.com/contest/408/problem/A
+// A. Line to Cashier
+int main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        int sum = 0;
+        for(int j = 0; j < arr[i]; j++){
+            int x; cin >> x;
+            sum += 15 + x * 15;
+        }
+        arr[i] = sum;
+    }
+    sort(arr, arr + n);
+    cout << arr[0];
+}
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
