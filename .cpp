@@ -861,6 +861,34 @@ int main() {
     cout << sscore << " " << dscore << endl;
 }
 using namespace std;
+http://codeforces.com/contest/382/problem/A
+// A. Ksenia and Pan Scales
+int main() {
+    string s, extra;
+    cin >> s >> extra;
+    size_t pipe_pos = s.find('|');
+    string left = s.substr(0, pipe_pos);
+    string right = s.substr(pipe_pos + 1);
+
+    int left_len = left.length();
+    int right_len = right.length();
+    int extra_len = extra.length();
+
+    int total_len = left_len + right_len + extra_len;
+    if (total_len % 2 == 0 && abs(left_len - right_len) <= extra_len) {
+        int target_len = total_len / 2;
+        // Add characters from `extra` to the shorter side
+        int to_add_left = target_len - left_len;
+        left += extra.substr(0, to_add_left);
+        right += extra.substr(to_add_left);
+
+        cout << left << '|' << right << endl;
+    } else
+        cout << "Impossible" << endl;
+    return 0;
+}
+
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
