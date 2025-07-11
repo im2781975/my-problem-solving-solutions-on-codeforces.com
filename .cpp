@@ -1012,7 +1012,27 @@ int main() {
     cout << total << endl;
     return 0;
 }
+using namespace std;
+http://codeforces.com/contest/427/problem/A
+//427 A. Police Recruits.cpp
+int main() {
+    int n; cin >> n;
+    int availableOfficers = 0;
+    int untreatedCrimes = 0;
+    for (int i = 0; i < n; ++i) {
+        int event; cin >> event;
 
+        if (event > 0)
+            availableOfficers += event;
+        else{
+            if (availableOfficers > 0)
+                --availableOfficers; 
+            else
+                ++untreatedCrimes;
+        }
+    }
+    cout << untreatedCrimes << endl;
+}
 using namespace std;
 // A. Keyboard
 // contest/474/problem/A
