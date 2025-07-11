@@ -991,6 +991,29 @@ int main(){
     else cout << -1;
 }
 using namespace std;
+int main() {
+    string s, s2; cin >> s >> s2;
+    int freq_s[26] = {0};
+    int freq_s2[26] = {0};
+    for (char ch : s)
+        ++freq_s[ch - 'a'];
+    for (char ch : s2)
+        ++freq_s2[ch - 'a'];
+    int total = 0;
+    for (int i = 0; i < 26; ++i) {
+        if (freq_s2[i] > 0) {
+            if (freq_s[i] == 0) {
+                cout << -1 << endl;
+                return 0;
+            }
+            total += min(freq_s[i], freq_s2[i]);
+        }
+    }
+    cout << total << endl;
+    return 0;
+}
+
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
