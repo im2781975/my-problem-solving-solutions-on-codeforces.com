@@ -1095,7 +1095,22 @@ int main() {
         cout << maxJokes << endl;
     }
 }
-
+using namespace std;
+codeforces.com/contest/439/problem/B
+// 439B. Devu, the Dumb Guy
+int main() {
+	int n, x; cin >> n >> x;
+	int arr[n];
+	for(int i = 0; i < n; i++)
+	    cin >> arr[i];
+	sort(arr, arr + n);
+	int sum = 0;
+	for(int i = 0; i < n; i++){
+	    sum += arr[i] * x;
+	    if(x > 1) --x;
+	}
+	cout << sum;
+}
 using namespace std;
 // A. Keyboard
 // contest/474/problem/A
