@@ -1077,6 +1077,26 @@ int main() {
     }
 }
 using namespace std;
+http://codeforces.com/problemset/problem/439/A
+// A. Devu, the Singer and Churu, the Joker
+int main() {
+    int n, k; cin >> n >> k;
+    int totalSongDuration = 0;
+    for (int i = 0; i < n; ++i) {
+        int song; cin >> song;
+        totalSongDuration += song;
+    }
+    int totalBreakTime = (n - 1) * 10; // 10 minutes break between songs
+    if (totalSongDuration + totalBreakTime > k)
+        cout << -1 << endl;
+    else {
+        int remainingTime = k - totalSongDuration;
+        int maxJokes = remainingTime / 5;
+        cout << maxJokes << endl;
+    }
+}
+
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
