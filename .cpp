@@ -1049,6 +1049,34 @@ int main(){
     cout << res;
 }
 using namespace std;
+http://codeforces.com/contest/433/problem/B
+// 433B. Kuriyama Mirai's Stones
+int main() {
+    int n; cin >> n;
+    vector<long long> original(n), sorted(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> original[i];
+        sorted[i] = original[i];
+    }
+    sort(sorted.begin(), sorted.end());
+    for (int i = 1; i < n; ++i) {
+        original[i] += original[i - 1];
+        sorted[i] += sorted[i - 1];
+    }
+    int q; cin >> q;
+    while (q--) {
+        int type, l, r; cin >> type >> l >> r;
+        l--, r--;
+        if (type == 1){
+            if (l == 0) cout << original[r] << endl;
+            else cout << original[r] - original[l - 1] << endl;
+        }else{
+            if (l == 0) cout << sorted[r] << endl;
+            else cout << sorted[r] - sorted[l - 1] << endl;
+        }
+    }
+}
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
