@@ -1034,6 +1034,21 @@ int main() {
     cout << untreatedCrimes << endl;
 }
 using namespace std;
+http://codeforces.com/contest/431/problem/A
+// A. Black Square
+int main(){
+    int arr[4], res = 0;
+    for(int i = 0; i < 4; i++)
+        cin >> arr[i];
+    string str; cin >> str;
+    int len = str.length();
+	for(int i = 0; i < len; i++){
+	    int z = str[i] - '0';
+	    res += arr[z - 1];
+	}
+    cout << res;
+}
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
