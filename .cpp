@@ -1260,6 +1260,25 @@ int main() {
 	cout << n + res;
 }
 using namespace std;
+http://codeforces.com/contest/463/problem/B
+// 463B - Caisa and Pylons
+int main() {
+    int n; cin >> n;
+    int energy = 0;
+    long long money = 0;
+    int currentHeight = 0;
+    for (int i = 0; i < n; ++i) {
+        int nextHeight; cin >> nextHeight;
+        energy += (currentHeight - nextHeight);
+        if (energy < 0) {
+            money += -energy;
+            energy = 0;
+        }
+        currentHeight = nextHeight;
+    }
+    cout << money << endl;
+}
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
