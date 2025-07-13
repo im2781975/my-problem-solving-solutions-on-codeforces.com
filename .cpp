@@ -1279,6 +1279,108 @@ int main() {
     cout << money << endl;
 }
 using namespace std;
+https://codeforces.com/contest/466/problem/A
+// 466A. Cheap Travel;
+int main(){
+	int n, m, a, b; cin >> n >> m >> a >> b;
+	int res = 0;
+	if(m * a <= b) res = n * a;
+	else res = (n / m) * b + min((n % m) * a, b);
+	cout << res;
+}
+using namespace std;
+http://codeforces.com/problemset/problem/467/A
+// A. George and Accommodation
+int main(){
+    int n; cin >> n;
+    int cnt = 0;
+    for(int i = 0; i < n; i++){
+        int a, b; cin >> a >> b;
+        if(b - a >= 2) ++cnt;
+    }
+    cout << cnt;
+}
+using namespace std;
+http://codeforces.com/contest/469/problem/A
+// 469A - I Wanna Be the Guy
+int main() {
+    int n; cin >> n;
+    set<int> levels;
+    int p1, p2, level;
+    cin >> p1;
+    for (int i = 0; i < p1; ++i) {
+        cin >> level;
+        levels.insert(level);
+    }
+    cin >> p2;
+    for (int i = 0; i < p2; ++i) {
+        cin >> level;
+        levels.insert(level);
+    }
+    if ((int)levels.size() == n)
+        cout << "I become the guy." << endl;
+    else
+        cout << "Oh, my keyboard!" << endl;
+}
+using namespace std;
+http://codeforces.com/contest/469/problem/A
+// 469A - I Wanna Be the Guy
+int main() {
+    int n; cin >> n;
+    set <int> levels;
+    for (int i = 0; i < 2; i++) {
+        int count; cin >> count;
+        for (int j = 0; j < count; j++) {
+            int level; cin >> level;
+            levels.insert(level);
+        }
+    }
+    if ((int)levels.size() == n)
+        cout << "I become the guy." << endl;
+    else
+        cout << "Oh, my keyboard!" << endl;
+}
+using namespace std;
+https://codeforces.com/contest/474/problem/A
+// 474 A. Keyboard
+string solve(string str, char ch){
+	string s = "qwertyuiopasdfghjkl;zxcvbnm,./";
+	string res;
+    int len = str.length();
+	for(int i = 0; i < len; i++){
+	    int idx = s.find(str[i]);
+	    if(ch == 'R') res += s[idx - 1];
+	    else res += s[idx + 1];
+	}
+    return res;
+}
+int main(){
+    string str; cin >> str;
+    char ch; cin >> ch;
+    cout << solve(s2,c);
+}
+using namespace std;
+string solve(const string& input, char direction) {
+    string keyboard = "qwertyuiopasdfghjkl;zxcvbnm,./";
+    string result;
+    for (char ch : input) {
+        size_t index = keyboard.find(ch);
+        if (direction == 'R')
+            result += keyboard[index - 1];
+        else// direction == 'L'
+            result += keyboard[index + 1];
+    }
+    return result;
+}
+int main() {
+    char shift;
+    string typed;
+    cin >> shift >> typed;
+    cout << solve(typed, shift) << endl;
+    return 0;
+}
+
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
