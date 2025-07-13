@@ -1175,7 +1175,44 @@ int main() {
     else
         cout << "Malvika" << endl;
 }
+using namespace std;
+http://codeforces.com/contest/451/problem/B
+// 451B - Sort the Array
+int main() {
+    int n; cin >> n;
+    vector<int> arr(n);
+    //for (int& x : arr)
+        //cin >> x;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        arr.push_back(x);
+    }
+    vector<int> sorted_arr = arr;
+    sort(sorted_arr.begin(), sorted_arr.end());
 
+    // Find the first and last position where arr and sorted_arr differ
+    int l = 0, r = n - 1;
+
+    while (l < n && arr[l] == sorted_arr[l]) ++l;
+    while (r >= 0 && arr[r] == sorted_arr[r]) --r;
+
+    if (l >= r) {
+        // Already sorted or only one element needs to be reversed (no-op)
+        cout << "yes\n1 1\n";
+        return 0;
+    }
+
+    // Reverse the subarray and check if it matches the sorted version
+    reverse(arr.begin() + l, arr.begin() + r + 1);
+
+    if (arr == sorted_arr) {
+        cout << "yes\n" << (l + 1) << " " << (r + 1) << "\n";
+    } else {
+        cout << "no\n";
+    }
+
+    return 0;
+}
 using namespace std;
 // A. Keyboard
 // contest/474/problem/A
