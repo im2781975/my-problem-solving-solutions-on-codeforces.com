@@ -1214,6 +1214,44 @@ int main() {
     return 0;
 }
 using namespace std;
+https://codeforces.com/contest/456/problem/A
+// 456A.Laptops
+int main(){
+    int n; cin >> n;
+    map <int, int> mp;
+    vector <int> vec;
+    for(int i = 0; i < n; i++){
+        int x, y; cin >> x >> y;
+        mp[x] = y;
+        vec.push_back(x);
+    }
+    sort(vec.begin(), vec.end());
+    bool check = 0;
+    for(int i = 0; i < n - 1; i++){
+        if(mp[vec[i]] > mp[vec[i + 1]])
+            check = 1;
+    }
+    if(check) cout << "Happy Alex";
+    else cout << "Poor Alex";
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    vector<pair<int, int>> laptops(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> laptops[i].first >> laptops[i].second; 
+    }
+    sort(laptops.begin(), laptops.end());
+    for (int i = 0; i < n - 1; ++i) {
+        if (laptops[i].second > laptops[i + 1].second) {
+            cout << "Happy Alex" << endl;
+            return 0;
+        }
+    }
+    cout << "Poor Alex" << endl;
+    return 0;
+}
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
