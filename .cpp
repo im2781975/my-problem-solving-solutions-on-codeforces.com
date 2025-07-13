@@ -1165,6 +1165,18 @@ int main() {
 	cout << sum;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/451/A
+// 451A - Game With Sticks
+int main() {
+    int n, m;
+    cin >> n >> m;
+    if (min(n, m) % 2 == 1)
+        cout << "Akshat" << endl;
+    else
+        cout << "Malvika" << endl;
+}
+
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
