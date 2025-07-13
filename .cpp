@@ -1252,6 +1252,14 @@ int main() {
     return 0;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/460/A
+// A. Vasya and Socks
+int main() {
+	int n, m; cin >> n >> m;
+	int res = (n - 1) / (m - 1);
+	cout << n + res;
+}
+using namespace std;
 // A. Keyboard
 // contest/474/problem/A
 int main(){
