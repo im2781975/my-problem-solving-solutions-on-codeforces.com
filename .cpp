@@ -142,6 +142,59 @@ int main(){
     (str == ing) ? cout << "Yes" : cout << "No";
 }
 using namespace std;
+https://codeforces.com/contest/43/problem/B
+// 43B. Letter
+int main(){
+	string str, ing;
+	getline(cin, str);
+	getline(cin, ing);
+	map <char, int> mp;
+	int len = str.length();
+	int len2 = ing.length();
+	for(int i = 0; i < len; i++)
+	    ++mp[str[i]];
+	 int cnt = 0, res = 0;
+	 for(int i = 0; i < len2; i++){
+	     if(ing[i] != ' '){
+	         ++res;
+	         if(mp[ing[i]] > 0){
+	             ++cnt;
+	             --mp[ing[i]];
+	         }
+	     }
+	 }
+	 if(res == cnt) cout << "YES";
+	 else cout << "NO";
+}
+using namespace std;
+int main() {
+    string magazine, letter;
+    getline(cin, magazine);
+    getline(cin, letter);
+
+    map<char, int> charCount;
+
+    // Count characters in the magazine string
+    for (char c : magazine) {
+        ++charCount[c];
+    }
+
+    // Check if we can form the letter
+    for (char c : letter) {
+        if (c == ' ') continue;
+
+        if (charCount[c] > 0) {
+            --charCount[c];
+        } else {
+            cout << "NO" << endl;
+            return 0;
+        }
+    }
+    cout << "YES" << endl;
+    return 0;
+}
+
+using namespace std;
 // A. Domino piling
 // problemset/problem/50/A
 int main(){
