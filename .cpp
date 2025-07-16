@@ -1396,6 +1396,21 @@ int main(){
     cout << res;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/479/A
+// 479A - Expression
+int main() {
+    int a, b, c; cin >> a >> b >> c;
+    int result = max({
+        a + b + c,
+        a * b * c,
+        a + (b * c),
+        (a + b) * c,
+        a * (b + c),
+        (a * b) + c
+    });
+    cout << result << endl;
+}
+using namespace std;
 // problemset/problem/617/A
 // A. Elephant
 int main(){
