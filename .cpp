@@ -1597,6 +1597,34 @@ int main(){
     (flag == 0) ? printf("#Black&White\n") : printf("#Color\n");
 }
 using namespace std;
+http://codeforces.com/contest/768/problem/A
+// 768A - Oath of the Night's Watch
+int main() {
+    int n; cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+    sort(arr.begin(), arr.end());
+    int minCount = upper_bound(arr.begin(), arr.end(), arr[0]) - arr.begin();
+    int maxCount = arr.end() - lower_bound(arr.begin(), arr.end(), arr[n - 1]);
+    int result = n - minCount - maxCount;
+    cout << (result > 0 ? result : 0) << endl;
+}
+using namespace std;
+int main(){
+	int n; cin >> n;
+	int counter = 0;
+	int arr[n];
+	for(int i = 0; i < n; i++)
+		cin >> arr[i];
+	sort(arr, arr + n);
+	counter = (lower_bound(arr, arr + n, arr[n - 1]) - arr) - (upper_bound(arr, arr + n, arr[0]) - arr);
+	 if(counter > 0)
+	     cout << counter;
+	 else
+		 cout << 0;
+}
+using namespace std;
 // A. Wrong Subtraction
 // problemset/problem/977/A?mobile=false
 int main() {
