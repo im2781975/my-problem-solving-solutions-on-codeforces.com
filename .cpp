@@ -1618,11 +1618,15 @@ int main(){
 	for(int i = 0; i < n; i++)
 		cin >> arr[i];
 	sort(arr, arr + n);
-	counter = (lower_bound(arr, arr + n, arr[n - 1]) - arr) - (upper_bound(arr, arr + n, arr[0]) - arr);
+	/*counter = (lower_bound(arr, arr + n, arr[n - 1]) - arr) - (upper_bound(arr, arr + n, arr[0]) - arr);
 	 if(counter > 0)
 	     cout << counter;
 	 else
-		 cout << 0;
+		 cout << 0;*/
+	for(int i = 0; i < n; i++){
+	if(arr[i] > arr[0] && arr[i] < arr[n - 1])
+	    counter++;
+	 cout << counter;
 }
 using namespace std;
 // A. Wrong Subtraction
