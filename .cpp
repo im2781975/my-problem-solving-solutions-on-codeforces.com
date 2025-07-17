@@ -202,6 +202,21 @@ int main(){
     cout << (m * n) / 2;
 }
 using namespace std;
+http://codeforces.com/contest/69/problem/A
+// 69A - Young Physicist
+int main() {
+    int n; cin >> n;
+    int x = 0, y = 0, z = 0;
+    while (n--) {
+        int a, b, c; cin >> a >> b >> c;
+        x += a; y += b; z += c;
+    }
+    if (x == 0 && y == 0 && z == 0)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
+}
+using namespace std;
 // A. Way Too Long Words
 // problemset/problem/71/A
 int main() {
@@ -216,6 +231,7 @@ int main() {
             cout << ch << endl;
     }
 }
+
 using namespace std;
 // contest/102/problem/B
 // B. Sum of Digits
