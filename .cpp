@@ -747,6 +747,30 @@ int main(){
     cout << cnt;
 }
 using namespace std;
+http://codeforces.com/contest/282/problem/A
+// 282A - Bit++
+int main() {
+    int n, x = 0; cin >> n;
+    while (n--) {
+        string s; cin >> s;
+        if (s[1] == '+') ++x;
+        else --x;
+    }
+    cout << x << endl;
+}
+using namespace std;
+int main() {
+	int n; cin >> n;
+	int x = 0;
+	while(n--){
+	    string s; cin >> s;
+		if(s.find('+') != -1) x += 1;
+		else x -= 1;
+		cin.ignore();
+	}
+	cout << x;
+}
+using namespace std;
 // http://codeforces.com/contest/289/problem/A
 // A - Polo the Penguin and Segments
 int main() {
