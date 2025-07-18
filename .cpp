@@ -504,6 +504,86 @@ int main(){
     cout << res;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/158/B
+// B. Taxi
+int main() {
+	int n; cin >> n;
+	int taxicount = 0;
+	int arr[5] = {0,0,0,0,0};
+    for(int i = 0; i < n; i++){
+	    int a; cin >> a;
+		++arr[a];
+	}
+	taxicount += arr[4];
+	arr[4] = 0;
+	if(arr[2]){
+	    int t = arr[2] >> 1;
+		taxicount += t;
+		arr[2] -= t*2;
+	}
+	if(arr[1] && arr[3]){
+		 int mnivalue = min(arr[1], arr[3]);
+		 taxicount += mnivalue;
+		 arr[1] -= mnivalue;
+		 arr[3] -= mnivalue;
+	}
+	if(arr[1] && arr[2]){
+		if(arr[2] <= arr[1] >>1 &&barr[1] >> 1){
+			taxicount += arr[2];
+			arr[1] -= arr[2]*2;
+			arr[2] -= arr[2];
+		}
+		else{
+			int z = min(arr[1], arr[2]);
+			taxicount += z;
+			arr[1] -= z;
+			arr[2]-=z;
+		}
+	}
+	int y = arr[1]/4;
+	taxicount += y;
+	arr[1] -= y*4;
+	if(arr[1] < 4 && arr[1]){
+		 taxicount += 1;
+		 arr[1] = 0;
+	}
+	for(int i = 1; i < 5; i++)
+        taxicount += arr[i];
+	cout << taxicount;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int count[5] = {0};
+    for (int i = 0; i < n; i++) {
+        int x; cin >> x;
+        count[x]++;
+    }
+    int taxis = 0;
+    // Groups of 4 need a taxi each
+    taxis += count[4];
+    // Pair 3s with 1s
+    int pair_3_1 = min(count[3], count[1]);
+    taxis += pair_3_1;
+    count[3] -= pair_3_1;
+    count[1] -= pair_3_1;
+    // Remaining 3s each need a taxi
+    taxis += count[3];
+    // Pair 2s together
+    taxis += count[2] / 2;
+    count[2] %= 2;
+    if (count[2]) {
+        // One group of 2 left
+        taxis += 1;
+        // Try to pair with up to two 1s
+        count[1] = max(0, count[1] - 2);
+    }
+    // Remaining 1s can fit 4 per taxi
+    taxis += (count[1] + 3) / 4;
+    cout << taxis << endl;
+    return 0;
+}
+using namespace std;
 http://codeforces.com/contest/158/problem/A
 // 158 A. Next Round
 int main(){
