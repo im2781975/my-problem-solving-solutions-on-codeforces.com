@@ -217,6 +217,21 @@ int main() {
         cout << "NO" << endl;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/69/A
+// A. Young Physicist
+int main() {
+    int n; cin >> n;
+    int x = 0, y = 0, z = 0;
+    for (int i = 0; i < n; ++i) {
+        int xi, yi, zi; cin >> xi >> yi >> zi;
+        x += xi; y += yi; z += zi;
+    }
+    if (x == 0 && y == 0 && z == 0)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
+}
+using namespace std;
 // A. Way Too Long Words
 // problemset/problem/71/A
 int main() {
