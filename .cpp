@@ -754,6 +754,26 @@ int main() {
         ch[0] = ch[0] - 32; 
     cout << ch << endl;
 }
+using namespace std;
+http://codeforces.com/contest/281/problem/A
+// A. Word Capitalization
+int main() {
+	 string s; cin >> s;
+	 s[0] = toupper(s[0]);
+	 cout << s;
+}
+using namespace std;
+char capitalize(char ch) {
+    if (ch >= 'a' && ch <= 'z') {
+        ch = ch - 'a' + 'A';
+    }
+    return ch;
+}
+int main() {
+    char word[1001]; cin >> word;
+    word[0] = capitalize(word[0]);
+    cout << word << endl;
+}
 
 using namespace std;
 // A. Bit++
