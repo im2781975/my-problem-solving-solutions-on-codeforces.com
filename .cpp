@@ -389,6 +389,15 @@ int main(){
 	}
 }
 using namespace std;
+http://codeforces.com/contest/136/problem/A
+// A. Presents
+int main() {
+	 string s1,s2; cin >> s1 >> s2;
+	 if(s1 == s2) cout << "-1";
+	 else
+		cout << max(s1.length(),s2.length());q
+}
+using namespace std;
 // http://codeforces.com/problemset/problem/141/A
 // A. Amusing Joke
 int main(){
