@@ -326,7 +326,45 @@ int main() {
             cout << ch << endl;
     }
 }
-
+using namespace std;
+http://codeforces.com/problemset/problem/71/A
+//A. Way_Too_Long_Words
+int main(){
+	int t; cin >> t;
+	while(t--){
+		string s; cin >> s;
+		int x = s.length();
+		if(x <= 10) cout << s << endl;
+		else
+		    cout << s[0] << x - 2 << s[x-1] << endl;
+	}
+}
+using namespace std;
+char word[101];
+int len = 0;
+void result(){
+    cout << word[0] << len - 2 << word[len - 1] << '\n';
+}
+int main(){
+    int n; cin >> n;
+    for(int i = 0; i < n; i++){
+        cin >> word;
+        len = strlen(thwword);
+        if(len > 10) result();
+        else cout << word << '\n';
+    }
+}
+using namespace std;
+int main() {
+	int t; cin >> t;
+	while(t--){
+		string s, s2; cin >> s;
+		int len = s.length();
+		if(len > 10)
+			 cout << s[0] << len - 2 << s[len - 1] << '\n';
+		else cout << s << '\n';
+	}
+}
 using namespace std;
 // contest/102/problem/B
 // B. Sum of Digits
