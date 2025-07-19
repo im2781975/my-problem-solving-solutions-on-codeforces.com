@@ -254,6 +254,34 @@ int main(){
     cout << (m * n) / 2;
 }
 using namespace std;
+http://codeforces.com/contest/59/problem/A
+// A. Word
+string toupp(string s){
+	int len = s.length();
+	for(int i = 0; i < len; i++)
+		s[i] = toupper(s[i]);
+	return s;
+}
+string tolow(string s){
+	int len = s.length();
+	for(int i = 0; i < len; i++)
+		s[i] = tolower(s[i]);
+	return s;
+}
+int main(){
+	string s; cin >> s;
+	int len = s.length();
+	int upper = 0, lower = 0;
+	for(int i = 0; i < len; i++){
+	    if(isupper(s[i])) upper++;
+	    else lower++;
+	}
+	if(upper > lower) s = toupp(s);
+	else if(upper < lower) s = tolow(s);
+	else s = tolow(s);
+    cout << s;
+}
+using namespace std;
 http://codeforces.com/contest/69/problem/A
 // 69A - Young Physicist
 int main() {
