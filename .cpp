@@ -1789,6 +1789,28 @@ int main() {
     cout << result << endl;
 }
 using namespace std;
+http://codeforces.com/contest/490/problem/A
+// A. Team Olympiad
+int main() {
+	int n; cin >> n;
+	int arr[n];
+	vector <int> one, two, three;
+	for(int i = 0; i < n; i++){
+	    cin >> arr[i];
+	    if(arr[i] == 1)
+	        one.push_back(i + 1);
+	    else if(arr[i] == 2)
+	        two.push_back(i + 1);
+	    else
+	        three.push_back(i + 1);
+	}
+    // int teams = min({one.size(), two.size(), three.size()});
+	int teams = min(t1, min(t2, t3));
+	cout << teams << endl;
+	for(int i = 0; i < teams; i++)
+	    cout << one[i] << " " << two[i] << " " << three[i] << "\n";
+}
+using namespace std;
 http://codeforces.com/contest/567/problem/A
 // 567A - Lineland Mail
 int main() {
