@@ -1841,6 +1841,48 @@ int main() {
 	    cout << one[i] << " " << two[i] << " " << three[i] << "\n";
 }
 using namespace std;
+http://codeforces.com/problemset/problem/535/B
+// B.Tavas_and_SaDDas
+vector<int> lucky_numbers;
+void generate_lucky(int num) {
+    if (num > 100000000) return;
+    if (num != 0) lucky_numbers.push_back(num);
+    generate_lucky(num * 10 + 4);
+    generate_lucky(num * 10 + 7);
+}
+int main() {
+    int n; cin >> n;
+    generate_lucky(0);
+    sort(lucky_numbers.begin(), lucky_numbers.end());
+    for (int i = 0; i < lucky_numbers.size(); ++i) {
+        if (lucky_numbers[i] == n) {
+            cout << i + 1 << endl;
+            break;
+        }
+    }
+}
+using namespace std;
+vector <int> vec;
+void luck(int n){
+	if(n > 100000000)
+		return;
+	vec.push_back(n * 10 + 4);
+	vec.push_back(n * 10 + 7);
+	int w = vec.size();
+	luck(vec[w - 1]);
+	luck(vec[w - 2]);
+}
+int main(){
+    int n; cin >> n;
+    luck(0);
+    sort(vec.begin(), vec.end());
+    int q = vec.size();
+    for(int i = 0; i < q; i++){
+        if(vec[i] == n)
+            cout << i + 1;
+    }
+}
+using namespace std;
 http://codeforces.com/contest/567/problem/A
 // 567A - Lineland Mail
 int main() {
