@@ -1895,6 +1895,17 @@ int main(){
     (flag == 0) ? printf("#Black&White\n") : printf("#Color\n");
 }
 using namespace std;
+http://codeforces.com/problemset/problem/723/A
+// A. The_New_Year_Meeting_Friends.cpp
+int main() {
+    int arr[3];
+    for (int i = 0; i < 3; i++)
+        cin >> arr[i];
+    sort(arr, arr + 3);
+    cout << arr[2] - arr[0];
+}
+
+using namespace std;
 http://codeforces.com/contest/768/problem/A
 // 768A - Oath of the Night's Watch
 int main() {
