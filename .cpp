@@ -861,6 +861,37 @@ int main(){
     cout << solved;
 }
 using namespace std;
+http://codeforces.com/contest/231/problem/A
+// A.Team
+int main() {
+    int n; cin >> n;
+    int counter = 0;
+    for (int i = 0; i < n; ++i) {
+        int a, b, c; cin >> a >> b >> c;
+        if (a + b + c >= 2) ++counter;
+    }
+    cout << counter << endl;
+}
+using namespace std;
+int main() {
+	int n; cin >> n;
+	int counter = 0;
+	int arr[n][3];
+	for(int i = 0; i < n; i++){
+	    for(int j = 0; j < 3; j++)
+	        cin >> arr[i][j];
+	}
+	for(int i = 0; i < n; i++){
+	    int x = 0;
+	    for(int j = 0; j < 3; j++){
+	        if(arr[i][j] == 1) x++;
+	    }
+	    if(x >= 2) counter += 1;
+	}
+	cout << counter;
+	return 0;
+}
+using namespace std;
 http://codeforces.com/contest/233/problem/A
 // A - Perfect Permutation
 int main() {
@@ -1579,7 +1610,6 @@ int main() {
         cout << "yes\n1 1\n";
         return 0;
     }
-
     // Reverse the subarray and check if it matches the sorted version
     reverse(arr.begin() + l, arr.begin() + r + 1);
 
