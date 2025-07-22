@@ -739,6 +739,48 @@ int main(){
     }
 }
 using namespace std;
+https://codeforces.com/problemset/problem/160/A
+// A.Twins
+int main() {
+    int n; cin >> n;
+    int coins[n];
+    int total_sum = 0;
+    for (int i = 0; i < n; ++i) {
+        cin >> coins[i];
+        total_sum += coins[i];
+    }
+    sort(coins, coins + n, greater<int>());
+    int my_sum = 0;
+    int coin_count = 0;
+    int half = total_sum / 2;
+    for (int i = 0; i < n; ++i) {
+        my_sum += coins[i];
+        coin_count++;
+        if (my_sum > half)
+            break;
+    }
+    cout << coin_count << endl;
+    return 0;
+}
+using namespace std;
+int main() {
+	 int n; cin >> n;
+	 int arr[n];
+	 int sum = 0, counter = 0;
+	 for(int i = 0; i < n; i++){
+	     cin >> arr[i];
+	     sum += arr[i];
+	 }
+	sum /= 2;
+	sort(arr, arr + n);
+	int sum2 = 0;
+	for(int i = n - 1; i >= 0; i--){
+	    sum2 += arr[i]; ++counter;
+	    if(sum2 > sum) break;
+	}
+	cout << counter;
+}
+using namespace std;
 // A. Mountain Scenery
 https://codeforces.com/contest/218/problem/A
 const int MAX = 105;
