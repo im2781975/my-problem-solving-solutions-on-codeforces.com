@@ -1818,6 +1818,20 @@ int main(){
     cout << w;
 }
 using namespace std;
+http://codeforces.com/contest/677/problem/A
+// A. Vanya and Fence
+int main() {
+	int n, h; cin >> n >> h;
+	int width = 0;
+	for(int i = 0; i < n; i++){
+	    int x; cin >> x;
+	    if(x > h) width += 2;
+	    else width += 1;
+	}
+	cout << width;
+	return 0;
+}
+using namespace std;
 // A. Brain's Photos
 // problemset/problem/707/A _ Brain has a photo represented as an n × m matrix, where each cell contains a letter representing a pixel's color.
 // Colors in the photo: Black-and-white colors: 'W' (white), 'G' (grey), 'B' (black)
