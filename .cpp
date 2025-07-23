@@ -995,6 +995,32 @@ int main(){
   	return 0;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/266/A
+// Stones_on_the_Table.cpp
+int main(){
+    int n;
+    char arr[51];
+    cin >> n >> arr;
+    int t = 0;
+    for(int i = 0; i < n; i++){
+        if(arr[i] == arr[i+1])
+            t++;
+    }
+    cout << t;
+}
+using namespace std;
+int main() {
+    int length; cin >> length;
+    string s; cin >> s;
+    int counter = 0;
+    for (int i = 1; i < length; ++i) {
+        if (s[i] == s[i - 1])
+            ++counter;
+    }
+    cout << counter << endl;
+}
+
+using namespace std;
 http://codeforces.com/problemset/problem/266/B
 // Queue at the School
 int main() {
