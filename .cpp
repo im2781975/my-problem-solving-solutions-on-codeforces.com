@@ -1176,6 +1176,44 @@ int main(){
         cout << arr[i] << " ";
 }
 using namespace std;
+http://codeforces.com/contest/294/problem/A
+// Shaass_and_Oskols.cpp
+int main() {
+    int n; cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i]; 
+    int m; cin >> m;
+    for (int i = 0; i < m; i++){
+        int x, y; cin >> x >> y;
+        x--;
+        if (x > 0)
+            arr[x - 1] += y - 1; // birds fly to the wire before
+
+        if (x < n - 1)
+            arr[x + 1] += arr[x] - y; // birds fly to the wire after
+        arr[x] = 0; // all birds on wire x fly away
+    }
+    for (int i = 0; i < n; i++) 
+        cout << arr[i] << '\n';
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int m; cin >> m;
+    for(int i = 0; i < m; i++){
+        int x, y; cin >> x >> y;
+        arr[x] += arr[x - 1] - y;
+	    arr[x - 2] += y - 1;
+	    arr[x - 1] = 0;
+    }
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << '\n';
+}
+using namespace std;
 http://codeforces.com/problemset/problem/318/A
 // A. Even Odds
 int main() {
@@ -1378,6 +1416,62 @@ int main() {
             dscore += chosen;
     }
     cout << sscore << " " << dscore << endl;
+}
+using namespace std;
+https://codeforces.com/problemset/problem/381/A
+// SerejaAndDima.cpp
+int main() {
+	int n; cin >> n;
+	int snscore = 0,dimscore = 0,counter = 0, right = 0, left = n - 1;
+	int arr[n];
+	for(int i = 0; i < n; i++)
+	    cin >> arr[i];
+	while(counter < n){
+		if(counter % 2 == 0){
+			if(arr[right] > arr[left]){
+			    snscore += arr[rigtht];
+				right++;
+			}
+			else
+			    snscore += arr[left];
+				left--;
+		}
+		else {
+		    if(arr[right] > arr[left]){
+			    dimscore += arr[right];
+			  	rigtht++;
+		    }
+			else{
+			    dimscore += arr[left];
+			    left--;
+			}
+	    }
+		counter++;
+	}
+	cout << snscore << " " << dimscore;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    int left = 0, right = n - 1;
+    int sereja = 0, dima = 0;
+    bool turn = true; // true = Sereja's turn, false = Dima's turn
+    while (left <= right) {
+        int chosen;
+        if (arr[left] > arr[right])
+            chosen = arr[left++];
+        else
+            chosen = arr[right--];
+        if (turn)
+            sereja += chosen;
+        else
+            dima += chosen;
+        turn = !turn;
+    }
+    cout << sereja << " " << dima << endl;
 }
 using namespace std;
 http://codeforces.com/contest/382/problem/A
@@ -1938,6 +2032,30 @@ int main(){
         if(vec[i] == n)
             cout << i + 1;
     }
+}
+using namespace std;
+http://codeforces.com/problemset/problem/546/A
+// Soldier_and_Bananas.cpp
+int main() {
+    long long k, n, w;
+    cin >> k >> n >> w;
+    // Total cost using arithmetic series sum: k * (1 + 2 + ... + w) = k * w * (w + 1) / 2
+    long long total_cost = k * w * (w + 1) / 2;
+    long long needed = max(0LL, total_cost - n);
+    cout << needed << endl;
+}
+using namespace std;
+int main() {
+	long long k, n, w; cin >> k >> n >> w;
+	long long cost=0,needed=0;
+	for(int i = 1; i <= w; i++)
+	    cost += k * i;
+	if(cost <=n)
+		cout << "0";
+	else {
+		 needed = cost - n;
+		 cout << needed;
+	}
 }
 using namespace std;
 http://codeforces.com/contest/567/problem/A
