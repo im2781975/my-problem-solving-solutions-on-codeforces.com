@@ -455,6 +455,37 @@ int main(){
     cout << res;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/118/A
+// String_Task.cpp
+int main() {
+    string input, result = "";
+    cin >> input;
+    for (char c : input) {
+        c = tolower(c);
+        if (c != 'a' && c != 'o' && c != 'y' && c != 'e' && c != 'u' && c != 'i') {
+            result += '.';
+            result += c;
+        }
+    }
+    cout << result << endl;
+}
+using namespace std;
+int main() {
+	string x, result = "";
+	cin >> x;
+	int len = x.length();
+	for(int i = 0; i < len; i++)
+	    x[i] = tolower(x[i]);
+	for(int i = 0; i < len; i++){
+        if(x[i] != 'a' && x[i] != 'o' && x[i] != 'y' && x[i] !='e' &&  x[i] !='u' && x[i]!= 'i'){
+            result += ".";
+            result += x[i];
+        }
+	}
+	cout << result;
+	return 0;
+}
+using namespace std;
 // problemset/problem/122/A
 // A. Lucky Division
 int main(){
