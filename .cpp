@@ -2207,6 +2207,59 @@ int main(){
 	 cout << counter;
 }
 using namespace std;
+http://codeforces.com/contest/828/problem/A
+// Restaurant.cpp
+int main() {
+    int n, single_tables, double_tables;
+    cin >> n >> single_tables >> double_tables;
+    int half_occupied = 0; // number of double tables with one person already
+    int rejected = 0;
+    for (int i = 0; i < n; ++i) {
+        int customer_type; cin >> customer_type;
+        if (customer_type == 1) {
+            if (single_tables > 0)
+                single_tables--;
+            else if (double_tables > 0) {
+                double_tables--;
+                half_occupied++;
+            } else if (half_occupied > 0)
+                half_occupied--;
+            else
+                rejected++;
+        } else if (customer_type == 2) {
+            if (double_tables > 0)
+                double_tables--;
+            else
+                rejected += 2;
+        }
+    }
+    cout << rejected << endl;
+}
+using namespace std;
+int main(){
+    int n, a, b; cin >> n >> a >> b;
+	int bow = 0, people = 0;
+	for(int i = 0; i < n; i++){
+		int x; cin >>x;
+		if(x == 1){
+			if(a > 0)	a--;
+			else{
+				if(b > 0) {
+					b--;
+					bow++;
+				}
+				else if(bow > 0)    bow--;
+				else    people++;
+			}
+		}
+		else if(x == 2){
+			if(b > 0)    b--;
+			else    people += 2;
+		}
+	}
+	cout << people;
+}
+using namespace std;
 // A. Wrong Subtraction
 // problemset/problem/977/A?mobile=false
 int main() {
