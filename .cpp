@@ -290,6 +290,64 @@ int main() {
     cout << winner << endl;
 }
 using namespace std;
+http://codeforces.com/contest/47/problem/B
+// 47B. Coins;
+int main() {
+	string arr[3] = {};
+	for(int i = 0; i < 3; i++)
+	    cin >> arr[i];
+	map <char, int> mp;
+	mp['A'] = 0; mp['B'] = 0; mp['C'] = 0;
+    for (int i = 0; i < 3; i++) {
+        char a = arr[i][0];
+        char b = arr[i][2];
+        if (arr[i][1] == '>') {
+            mp[a]++;
+            mp[b]--;
+        } else {
+            mp[a]--;
+            mp[b]++;
+        }
+    }
+	if(mp['A'] > mp['B'] && mp['B'] > mp['C']) cout << "CBA";
+    else if(mp['A'] > mp['C'] && mp['C'] > mp['B']) cout << "BCA";
+	else if(mp['B'] > mp['C'] && mp['C'] > mp['A']) cout << "ACB";
+    else if(mp['B'] > mp['A'] && mp['A'] > mp['C']) cout << "CAB";
+	else if(mp['C'] > mp['B'] && mp['B'] > mp['A']) cout << "ABC";
+    else if(mp['C'] > mp['A'] && mp['A'] > mp['B']) cout << "BAC";
+	else cout << "IMPOSSIBLE";
+}
+using namespace std;
+int main() {
+    string arr[3];
+    for (int i = 0; i < 3; i++)
+        cin >> arr[i];
+    map<char, int> weight;
+    weight['A'] = 0;
+    weight['B'] = 0;
+    weight['C'] = 0;
+    for (int i = 0; i < 3; i++) {
+        char a = arr[i][0];
+        char b = arr[i][2];
+        if (arr[i][1] == '>')
+            weight[a]++;
+        else
+            weight[b]++;
+    }
+    vector<pair<int, char>> result;
+    for (auto& p : weight)
+        result.push_back({p.second, p.first});
+    sort(result.begin(), result.end());
+    if (result[0].first == result[1].first || result[1].first == result[2].first) {
+        cout << "Impossible" << endl;
+    } else {
+        for (auto& p : result)
+            cout << p.second;
+        cout << endl;
+    }
+}
+
+using namespace std;
 // A. Domino piling
 // problemset/problem/50/A
 int main(){
@@ -1941,6 +1999,52 @@ int main() {
         cout << "I become the guy." << endl;
     else
         cout << "Oh, my keyboard!" << endl;
+}
+using namespace std;
+http://codeforces.com/problemset/problem/472/A
+// A. Design Tutorial: Learn from Math
+const int N = 1e6;
+bool arr[N + 5];
+void seive(){
+    arr[0] = 1; arr[1] = 1;
+    for(int i = 2; i <= N; i++){
+        if(arr[i]) continue;
+        for(int j = i * i; j <= N; j += i)
+            arr[j] = 1;
+    }
+}
+int main() {
+	seive();
+	int n; cin >> n;
+	int val = n >> 1;
+	int val2 = n - val;
+	while(arr[val] == 0 || arr[val2] == 0){
+	    ++val; val2 = n - val;
+	}
+	cout << val << " " << val2;
+}
+using namespace std;
+const int N = 1e6 + 5;
+bool isPrime[N];
+void sieve() {
+    isPrime[0] = isPrime[1] = true;
+    for (int i = 2; i * i < N; i++) {
+        if (!isPrime[i]) {
+            for (int j = i * i; j < N; j += i) {
+                isPrime[j] = true;
+            }
+        }
+    }
+}
+int main() {
+    sieve();
+    int n; cin >> n;
+    for (int i = 4; i <= n / 2; i++) {
+        if (isPrime[i] && isPrime[n - i]) { // both not prime ⇒ both composite
+            cout << i << " " << n - i << endl;
+            break;
+        }
+    }
 }
 using namespace std;
 https://codeforces.com/contest/474/problem/A
