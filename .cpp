@@ -2117,6 +2117,16 @@ int main() {
     cout << result << endl;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/486/A
+// CalculatingFunction.cpp
+int main() {
+    int n; cin >> n;
+    if (n % 2 == 0) cout << n / 2 << endl;
+    else cout << -(n + 1) / 2 << endl;
+    // if(n & 1) cout << -((n + 1) >> 1);
+	// else cout << n >> 1; 
+}
+using namespace std;
 http://codeforces.com/contest/490/problem/A
 // A. Team Olympiad
 int main() {
