@@ -2181,6 +2181,45 @@ int main() {
 	    cout << one[i] << " " << two[i] << " " << three[i] << "\n";
 }
 using namespace std;
+http://codeforces.com/problemset/problem/510/A
+// A. Fox And Snake
+int main(){
+    int n, m; cin >> n >> m;
+    int odd = 0;
+    for(int i = 0; i < n; i++){
+        if(i % 2 == 0){
+            for(int j = 0; j < m; j++)
+                cout << "#";
+        }
+        else{
+            ++odd;
+            for(int j = 0; j < m; j++){
+                if(odd % 2 == 1 && j == m - 1) cout << "#";
+                else if(odd % 2 == 0 && j == 0) cout << "#";
+                else cout << ".";
+            }
+        }
+        cout << "\n";
+    }
+}
+using namespace std;
+int main() {
+    int n, m; cin >> n >> m;
+    for (int i = 0; i < n; ++i) {
+        if (i % 2 == 0) {
+            for (int j = 0; j < m; ++j) cout << "#";
+        } else {
+            for (int j = 0; j < m; ++j) {
+                if ((i / 2) % 2 == 0 && j == m - 1) cout << "#";
+                else if ((i / 2) % 2 == 1 && j == 0) cout << "#";
+                else cout << ".";
+            }
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+using namespace std;
 http://codeforces.com/problemset/problem/535/B
 // B.Tavas_and_SaDDas
 vector<int> lucky_numbers;
