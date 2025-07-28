@@ -2335,6 +2335,20 @@ int main() {
 	}
 }
 using namespace std;
+http://codeforces.com/contest/556/problem/A
+// A. Case of the Zeros and Ones
+int main() {
+    int n; cin >> n;
+    string s; cin >> s;
+    int zeros = count(s.begin(), s.end(), '0');
+    int ones  = n - zeros; 
+    cout << abs(zeros - ones) << '\n';
+    // int zers = count(s.begin(), s.end(), '0');
+	// int ons = count(s.begin(), s.end(), '1');
+	// cout<< n - (2* min(zers, ons));
+    return 0;
+}
+using namespace std;
 http://codeforces.com/contest/567/problem/A
 // 567A - Lineland Mail
 int main() {
@@ -2383,6 +2397,104 @@ int main() {
 		 cout<<mini<<" "<<maxi<<"\n";
 	}
 	return 0;
+}
+using namespace std;
+http://codeforces.com/contest/567/problem/A
+// A. Lineland Mail
+int main() {
+    int n; cin >> n;
+    long long arr[n];
+    for (int i = 0; i < n; ++i) 
+        cin >> arr[i];
+    for (int i = 0; i < n; ++i) {
+        long long mini, maxi;
+        if (i == 0) {
+            mini = abs(arr[i] - arr[i + 1]);
+            maxi = abs(arr[i] - arr[n - 1]);
+        }
+        else if (i == n - 1) {
+            mini = abs(arr[i] - arr[i - 1]);
+            maxi = abs(arr[i] - arr[0]);
+        }
+        else {
+            mini = min(abs(arr[i] - arr[i - 1]), abs(arr[i] - arr[i + 1]));
+            maxi = max(abs(arr[i] - arr[0]), abs(arr[i] - arr[n - 1]));
+        }
+        cout << mini << " " << maxi << '\n';
+    }
+}
+using namespace std;
+int main() {
+	int n; cin >> n;
+	long long arr[n];
+	for(int i = 0; i < n; i++) cin >> arr[i];
+	for(int i = 0; i < n; i++){
+		long long mini = INT_MAX;
+		long long maxi = INT_MIN;
+		if(!i){
+			mini = min(mini, min(abs(arr[i] - arr[n - 1]), abs(arr[i] - arr[i + 1])));
+			maxi = max(maxi, max(abs( arr[i] - arr[n - 1]), max( abs(arr[i] - arr[i + 1]) , abs(arr[i] - arr[n - 1])) ));
+		}
+		else if(i == n - 1){
+			mini = min(mini, min(abs(arr[i] - arr[i - 1]), abs(arr[i] - arr[0])));
+			maxi = max(maxi, max(abs( arr[i] - arr[i-1]), max(abs (arr[i] - arr[0]), abs( arr[i] - arr[n-1]))));
+			
+		}
+		else{
+			mini = min(mini, min(abs(arr[i] - arr[i - 1]), abs(arr[i] - arr[i + 1])));
+			maxi = max(maxi, max(abs(arr[i] - arr[i - 1]), max(abs(arr[i] - arr[i + 1]), max(abs(arr[i] - arr[n - 1]), abs(arr[i] - arr[0])))));
+		}
+		cout << mini << " " << maxi << "\n";
+	}
+}
+using namespace std;
+http://codeforces.com/problemset/problem/580/A
+// A. Kefa and First Steps
+int main() {
+    int n; cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+    int maxLength = 1, currentLength = 1;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] >= arr[i - 1])
+            currentLength++;
+        else
+            currentLength = 1;
+        maxLength = max(maxLength, currentLength);
+    }
+    cout << maxLength << endl;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int arr[n];
+    int maxlength = 0, start = 0, end = 0;
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+        if(i){
+	        if(arr[i] < arr[i - 1]){
+		        end = i - 1;
+		        maxlength = max(maxlength, (end - start) + 1);
+                start = i;
+	        }
+	        else{
+		         end = i;
+		         maxlength = max(maxlength, (end - start) + 1);
+	        }
+	    }
+    }
+    if(!start && !end) cout << n;
+    else cout << maxlength;
+}
+using namespace std;
+https://codeforces.com/problemset/problem/581/A
+// 581A. Vasya the Hipster
+int main(){
+    int a, b; cin >> a >> b;
+    int mini = min(a,b);
+    int maxi = max(a,b);
+    cout << mini << " " << (maxi - mini)/2 << endl;
 }
 using namespace std;
 // problemset/problem/617/A
