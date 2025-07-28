@@ -245,7 +245,50 @@ int main() {
     cout << "YES" << endl;
     return 0;
 }
-
+using namespace std;
+http://codeforces.com/contest/43/problem/A
+// Football.cpp
+int main() {
+	int n; cin >> n;
+	map <string, int> mp;
+	map <string, int> ::iterator it;
+	for(int i = 0; i < n; i++){
+	    string str; cin >> str;
+	    ++mp[str];
+	}
+	it = mp.begin();
+	int len = mp.size();
+	if(x != 1){
+	    int val = (*it).second;
+	    it++;
+	    int val2 = (*it).second;
+	    if(val2 > val) cout << (*it).first;
+	}
+	else if(val > val2){
+	    it = mp.begin();
+	    cout << (*it).first;
+	}
+	else cout << (*it).first;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    map<string, int> teamGoals;
+    string teamName;
+    for (int i = 0; i < n; ++i) {
+        cin >> teamName;
+        teamGoals[teamName]++;
+    }
+    string winner;
+    int maxGoals = 0;
+    for (const auto& entry : teamGoals) {
+        if (entry.second > maxGoals) {
+            maxGoals = entry.second;
+            winner = entry.first;
+        }
+    }
+    cout << winner << endl;
+}
 using namespace std;
 // A. Domino piling
 // problemset/problem/50/A
