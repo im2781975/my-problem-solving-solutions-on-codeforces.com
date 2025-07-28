@@ -2220,6 +2220,39 @@ int main() {
     return 0;
 }
 using namespace std;
+https://codeforces.com/contest/514/problem/A
+// 514A. Chewbaсca and Number
+int main() {
+    string s, s2; cin >> s;
+    s2 = s;
+    int len = s.length();
+    for(int i = 0; i < len; i++){
+        if(i){
+	        if(9 - (s[i] - '0') >= 0 && (9 - (s[i] - '0')) < s[i] - '0')
+	            s[i] = (9 - (s[i] - '0')) + '0';
+        }
+        else{
+            if(9 - (s[i] - '0') > 0 && (9 - (s[i] - '0')) < s[i] - '0')
+	            s[i] = (9 - (s[i] - '0')) + '0';
+        }
+    }
+if(s < s2) cout << s;
+else cout << s2;
+}
+using namespace std;
+int main() {
+    string s; cin >> s;
+    for (int i = 0; i < s.length(); ++i) {
+        int digit = s[i] - '0';
+        int flipped = 9 - digit;
+        if (flipped < digit && (i > 0 || flipped > 0)) {
+            s[i] = flipped + '0';
+        }
+    }
+    cout << s << '\n';
+    return 0;
+}
+using namespace std;
 http://codeforces.com/problemset/problem/535/B
 // B.Tavas_and_SaDDas
 vector<int> lucky_numbers;
