@@ -19,7 +19,39 @@ int main(){
             cout << "OK";
         mp[str]++;
     }
-}#include <iostream>
+}
+using namespace std;
+https://codeforces.com/problemset/problem/4/C
+// 4C. Registration system
+int main(){
+    int n; cin>>n;
+    map <string, int> mp;
+    for(int i = 0; i < n; i++){
+        string str; cin >> str;
+        if(!mp[str]){
+            cout << "OK" << endl;
+            ++mp[str];
+        }
+        else{
+            cout, << str + to_string(mp[str]) << endl;
+            ++mp[str];
+        }
+    }
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    map<string, int> database;
+    for (int i = 0; i < n; ++i) {
+        string username; cin >> username;
+        if (database[username] == 0)
+            cout << "OK" << endl;
+        else
+            cout << username << database[username] << endl;
+        database[username]++;
+    }
+}
+#include <iostream>
 #include <string>
 using namespace std;
 http://codeforces.com/contest/16/problem/A
