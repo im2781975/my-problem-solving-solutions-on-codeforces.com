@@ -1952,6 +1952,34 @@ int main() {
 	cout << n + res;
 }
 using namespace std;
+http://codeforces.com/contest/460/problem/A
+// A. Vasya and Socks
+int main() {
+    int n, k; cin >> n >> k;
+    int days = 0;
+    while (n > 0) {
+        ++days;
+        --n;
+        if (days % k == 0)
+            ++n; // Vasya gets an extra sock every k days
+    }
+    cout << days << endl;
+}
+using namespace std;
+int main(){
+    int n, k; cin >> n >> k;
+    int current = 0, lastbuy = 0;
+    while(n > 0){
+	    ++current;
+	    --n;
+	    if(current - lastbuy == k){
+		    ++n;
+		    lastbuy = current;
+	    }
+    }
+	cout << current;
+}
+using namespace std;
 http://codeforces.com/contest/463/problem/B
 // 463B - Caisa and Pylons
 int main() {
@@ -2497,12 +2525,111 @@ int main(){
     cout << mini << " " << (maxi - mini)/2 << endl;
 }
 using namespace std;
+http://codeforces.com/contest/584/problem/A
+// 584A - Olesya and Rodion
+int main() {
+    int n, d; cin >> n >> d;
+    string s;
+    // Case 1: Can't form a number with one digit divisible by 10
+    if (d == 10 && n < 2)
+        cout << "-1";
+    // Case 2: d = 10 and n >= 2 => number must end in 0, rest can be 1s
+    else if (d == 10) {
+        s.append(n - 1, '1');
+        s += '0'; cout << s;
+    }
+    // Case 3: Any other digit
+    else {
+        s.append(n, d + '0');
+        cout << s;
+    }
+}
+using namespace std;
+int main() {
+	int n, d; cin >> n >> d;
+	string s;
+	if(d == 10 && n < 2) cout << "-1";
+	else if(d == 10 && n >= 2){
+		for(int i = 0; i < n - 1; i++)
+			s += 1 + '0';
+		s += 0 + '0';
+		cout << s;
+	}
+	else {
+	    for(int i = 0; i < n; i++)
+		    s += d + '0';
+	    cout << s;
+	}
+	return 0;
+}
+using namespace std;
+http://codeforces.com/problemset/problem/615/A
+// A. Bulbs
+bool arr[101] = {false};
+int main() {
+    int n, m; cin >> n >> m;
+    for (int i = 0; i < n; ++i) {
+        int x; cin >> x;
+        for (int j = 0; j < x; ++j) {
+            int y; cin >> y;
+            arr[y] = true;
+        }
+    }
+    bool all_on = true;
+    for (int i = 1; i <= m; ++i) {
+        if (!arr[i]) {
+            all_on = false;
+            break;
+        }
+    }
+    cout << (all_on ? "YES" : "NO") << endl;
+    return 0;
+}
+using namespace std;
+bool arr[101];
+int main(){
+    int n, m; cin >> n >> m;
+    bool flag = true;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        for(int j = 0; j < x; j++){
+            int y; cin >> y;
+            arr[y - 1] = 1;
+        }
+    }
+    for(int i = 0; i < m; i++){
+        if(!arr[i]) flag = false;
+    }
+    if(flag) cout << "Yes";
+    else cout << "No";
+    return 0;
+}
+using namespace std;
 // problemset/problem/617/A
 // A. Elephant
 int main(){
     int n; cin >> n;
     int res = (n % 5 == 0) ? n / 5 : (n / 5) + 1;
     cout << res;
+}
+using namespace std;
+https://codeforces.com/contest/672/problem/A
+// A. Summer Camp
+int main() {
+    int n; cin >> n;
+    string sequence;
+    for (int i = 1; sequence.length() < n; ++i) 
+        sequence += to_string(i);
+    cout << sequence[n - 1] << endl;
+    return 0;
+}
+using namespace std;
+int main() {
+	int n; cin >> n;
+	string s = "";
+	for(int i = 1; i <= 1000; i++)
+		s += to_string(i);
+	cout << s[n - 1];
 }
 using namespace std;
 // A. Vanya and Fence
@@ -2530,6 +2657,56 @@ int main() {
 	}
 	cout << width;
 	return 0;
+}
+using namespace std;
+http://codeforces.com/contest/680/problem/B
+// Bear and Finding
+int main() {
+    int n, a, counter = 0; cin >> n >> a;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    a--; // Convert to 0-based index
+    if (arr[a]) counter++; // Count criminal at initial position
+    for (int i = 1; i < n; i++) {
+        int left = a - i;
+        int right = a + i;
+        bool leftValid = (left >= 0);
+        bool rightValid = (right < n);
+        if (leftValid && rightValid) {
+            if (arr[left] && arr[right]) counter += 2;
+        else if (leftValid && arr[left]) 
+            counter++;
+        else if (rightValid && arr[right]) 
+            counter++;
+    }
+    cout << counter << endl;
+}
+using namespace std;
+int main() {
+	int n, a, counter = 0; cin >> n >> a;
+	int arr[n];
+	for(int i = 0; i < n; i++)
+		cin >> arr[i];
+	--a;
+	if(arr[a]) ++counter;
+    for(int i = 1; i < n; i++){
+	    int right, left;
+		right = a + i;
+		left = a - i;
+		if(left >= 0 || right < n){
+		    if(left >= 0 && right < n){
+			    if(arr[right]&&arr[left]) counter += 2;
+			}
+			else if(left >= 0){
+			    if(arr[left]) ++counter;
+			}
+			else if(right < n){
+		        if(arr[right]) ++counter;
+			}
+		}
+	}
+	cout << counter;
 }
 using namespace std;
 // A. Brain's Photos
