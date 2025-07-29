@@ -415,6 +415,100 @@ int main(){
     cout << s;
 }
 using namespace std;
+http://codeforces.com/problemset/problem/61/A
+// Ultra-Fast Mathematician
+int main() {
+    string s1, s2, result = "";
+    cin >> s1 >> s2;
+    for (size_t i = 0; i < s1.length(); i++) {
+        result += (s1[i] == s2[i]) ? '0' : '1';
+    }
+    cout << result << endl;
+}
+using namespace std;
+int main(){
+    string s, s1, s2;
+    cin >> s >> s1;
+    int len = s.length();
+    for(int i = 0; i < len; i++){
+	    if(s[i] != s1[i]) s2 += '1';
+	    else s2 += '0';
+	
+    }
+    cout << s2;
+}
+using namespace std;
+http://codeforces.com/contest/66/problem/B
+// 66B - Petya and Countryside
+int arr[1005];
+int solve(int n, int index) {
+    int left = 0, right = 0;
+    int refLeft = arr[index], refRight = arr[index];
+    // Expand to the right
+    for (int i = index; i < n; i++) {
+        if (arr[i] > refRight) break;
+        ++right;
+        refRight = min(refRight, arr[i]);
+    }
+    // Expand to the left
+    for (int i = index - 1; i >= 0; i--) {
+        if (arr[i] > refLeft) break;
+        ++left;
+        refLeft = min(refLeft, arr[i]);
+    }
+    return left + right;
+}
+int main() {
+    int n, maxLen = 0; cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    for (int i = 0; i < n; i++) {
+        maxLen = max(maxLen, solve(n, i));
+    }
+    cout << maxLen << endl;
+    return 0;
+}
+using namespace std;
+int arr[1005];
+int solve(int n, int index){
+	int right = 0, left = 0;
+	int rigthreference = arr[index];
+	int leftreference = arr[index];
+	for(int i = index; i < n; i++){
+		if(arr[i]>rigthreference)
+			break;
+		else {
+			++right;
+			if(arr[i] < rigthreference)
+				rigthreference = arr[i];
+		}
+	}
+	for(int i = index - 1; i >= 0; i--){
+		if(arr[i] > leftreference)
+			break;
+		else {
+			++left;
+			if(arr[i]<leftreference)
+				leftreference=arr[i];
+		}
+	}
+	return right + left;
+}
+int main(){
+    int n; cin >> n;
+    for(int i = 0; i < n; i++)
+	    cin >> arr[i];
+    int resultvalue = 0, resultindex = 0;
+    for(int i = 0; i < n; i++){
+	    int value = solve(n, i);
+	    if(value > resultvalue){
+		    resultindex = i;
+		    resultvalue = value;
+	    }
+    }
+    cout << resultvalue << endl;
+}
+using namespace std;
 http://codeforces.com/contest/69/problem/A
 // 69A - Young Physicist
 int main() {
