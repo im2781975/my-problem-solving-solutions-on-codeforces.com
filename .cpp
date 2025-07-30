@@ -189,6 +189,170 @@ int main() {
 
     return 0;
 }
+#include<cstdio>
+#include<cmath>
+#include<cstdlib>
+#define PI 3.141592654
+
+double point[3][2],ql[3],cosa[3],qsina[3],qr,s;
+unsigned i,a[3],res,g,b[3]={0},c[3],d,mind;
+
+int main()
+{
+  for(i=0;i<3;i++)
+  	scanf("%lf%lf",&point[i][0],&point[i][1]);
+  for(i=0;i<3;i++)
+  	ql[i]=(point[i][0]-point[(i+1)%3][0])*(point[i][0]-point[(i+1)%3][0])+(point[i][1]-point[(i+1)%3][1])*(point[i][1]-point[(i+1)%3][1]);
+  for(i=0;i<3;i++)
+  {
+    cosa[i]=(ql[(i+2)%3]+ql[(i+1)%3]-ql[i])/(2*sqrt(ql[(i+1)%3])*sqrt(ql[(i+2)%3]));
+  	qsina[i]=1-cosa[i]*cosa[i];
+	a[i]=acos(cosa[i])*1e5;
+  }
+  qr=(ql[0]/qsina[0]+ql[1]/qsina[1]+ql[2]/qsina[2])/12;
+  b[0]=b[1]=b[2]=1;
+  mind=~0;
+  do
+  {
+  	c[0]=a[0]/b[0];
+  	c[1]=a[1]/b[1];
+  	c[2]=a[2]/b[2];	
+  	d=abs(c[0]-c[1])+abs(c[1]-c[2])+abs(c[2]-c[0]);
+  	if(mind>d)
+  	{
+  	  mind=d;
+  	  res=b[0]+b[1]+b[2];
+	}
+	
+	i=0;
+	if(a[0]/b[0]<a[1]/b[1])
+  	  i=1;
+  	if(a[i]/b[i]<a[2]/b[2])
+  	  i=2;
+  	++b[i];
+  }while(b[0]+b[1]+b[2]<=100);
+  s=qr*sin(2*PI/res)*res/2;
+  printf("%.8lf\n",s);
+  return 0;
+}
+// #pragma GCC optimize("Ofast")
+// #pragma GCC optimize("O3,unroll-loops")
+// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+#include <bits/stdc++.h>
+using namespace std;
+#ifdef NPC
+#include "algo/debug.h"
+#else
+#define debug(...) 42
+#endif
+
+#define int long long
+
+#define                                  fi first
+#define                                  se second
+#define                                 pb push_back
+#define                                 pf push_front
+#define                              yes cout << "YES\n"
+#define                               no cout << "NO\n"
+#define                            SZ(x) ((int)(x).size())
+#define                           ALL(x) (x).begin(),(x).end()
+#define                          RALL(x) (x).rbegin(),(x).rend()
+#define                          SUM(x) accumulate(all(x), 0ll)
+#define                         tcase(Q) int Q; cin >> Q; while(Q--)
+#define                       uni(v) v.erase(unique(all(v)), v.end())
+#define file(task) if(fopen(task".inp", "r")){freopen(task".inp", "r", stdin); freopen(task".out", "w", stdout);}
+#define     F_OR(i, a, b, s) for (int i = (a); (s) > 0 ? i <= (b) : i >= (b); i += (s))
+#define                             F_OR1(e) F_OR(i, 0, (e), 1)
+#define                          F_OR2(i, e) F_OR(i, 0, (e) - 1, 1)
+#define                           F_OR3(i, b, e) F_OR(i, b, (e), 1)
+#define                          F_OR4(i, b, e, s) F_OR(i, b, (e), s)
+#define                             GET5(a, b, c, d, e, ...) e
+#define                 F_ORC(...) GET5(__VA_ARGS__, F_OR4, F_OR3, F_OR2, F_OR1)
+#define                      FOR(...) F_ORC(__VA_ARGS__)(__VA_ARGS__)
+
+/****************[BIT]****************/
+#define     getbit(x, i) ((x >> i) & 1)
+#define     ctz(x) __builtin_ctzll(x)    
+#define     Log2(x) 63 - __builtin_clzll(x)
+#define     cntbit(x) __builtin_popcountll(x)                   
+/****************[END]****************/
+
+typedef long long ll;
+typedef pair <int, int> ii;
+typedef pair <ii, int> i3;
+typedef pair <ii, ii> i4;
+typedef vector <ii> vi2;
+typedef vector <int> vi;
+typedef vector <vi> vvi;
+typedef vector <string> vstr;
+typedef priority_queue <ii, vector<ii>, greater<ii>> min_heap;
+typedef priority_queue <ii, vector<ii>> max_heap;
+
+const int INF = (int)1e9 + 5062007;
+const ll LINF = (ll)1e18 + 5062007;
+const double eps = (double)1e-4;
+const double PI = acos(-1.0);
+const int mod = (int)1e9 + 7; //99824435+93;
+
+template <class T> T fast_pow(T n, T k) { T res = 1;while (k) { if (k & 1) res = (res * n) % mod, k--;else n = (n * n) % mod, k >>= 1; }return res; }
+template <class T> T gcd(T a, T b) { return b ? gcd(b, a % b) : a; }
+template <class T> bool maxi(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
+template <class T> bool mixi(T& a, const T& b) { return a > b ? a = b, 1 : 0; }
+template <class T> void add(T& x, const T& y, const T& p = mod) { x += y; if (x >= p) x -= p; }
+template <class T> void sub(T& x, const T& y, const T& p = mod) { x -= y; if (x < 0) x += p; }
+void VHP(int test_case);
+
+signed main(void) {
+    cin.tie(nullptr), cout.tie(nullptr)->sync_with_stdio(0);
+    file("");
+    int T = 1;
+    //cin >> T;
+    FOR(i, 1, T) VHP(i);
+    return 0;
+}
+
+/*
+
+*/
+/*
+SOLUTION ========================/
+--------------------------------+/
+
+--------------------------------+/
+=================================/
+*/
+
+const int N = 1e5 + 7;
+double xa, ya, xb, yb, xc, yc;
+double dist (double xa, double ya, double xb, double yb) {
+    double dx = xa - xb, dy = ya - yb;
+    return sqrt(dx * dx + dy * dy);
+}
+double S(double a, double b, double c) {
+    double cv = (a + b + c) / 2;
+    return sqrt(cv * (cv - a) * (cv - b) * (cv - c));
+}
+double cos(double a, double b, double c) {
+    return acos((a * a + b * b - c * c) / (2 * a * b));
+}
+double fgcd(double a, double b) {
+    if(fabs(b) < eps) return a;
+    return fgcd(b, fmod(a, b));
+}
+void VHP(int test_case) {
+    //cout << "Case #" << test_case << ": ";
+    cin >> xa >> ya >> xb >> yb >> xc >> yc;
+    double ab = dist(xa, ya, xb, yb);
+    double ac = dist(xa, ya, xc, yc);
+    double bc = dist(xb, yb, xc, yc);
+    double anga = cos(ab, ac, bc), angb = cos(bc, ab, ac), angc = cos(ac, bc, ab);
+    double r = ab * bc * ac / (4 * S(ab, bc, ac));
+    anga *= 2; angb *= 2, angc *= 2;
+    double angd = fgcd(anga, fgcd(angb, angc));
+    double ans = r * r * sin(angd) * PI / angd;
+    cout << setprecision(6) << fixed;
+    cout << ans;
+}
 #include <iostream>
 #include <string>
 using namespace std;
