@@ -51,6 +51,162 @@ int main() {
         database[username]++;
     }
 }
+https://codeforces.com/problemset/problem/1/B
+// B. Spreadsheets
+#include <bits/stdc++.h>
+using namespace std;
+#define ull unsigned long long
+#define ll long long
+#define vi vector<int>
+#define vvi vector<vector<int>>
+#define vs vector<string>
+#define vll vector<ll>
+#define vvl vector<vector<ll>>
+#define vpi vector<pair<int, int>>
+#define vpl vector<pair<ll, ll>>
+#define vs vector<string>
+
+bool determine(string s) {
+    bool found_num = false, is_excel = true;
+    for (auto c : s) {
+        if ('0' <= c && c <= '9') {
+            found_num = true;
+        } else {
+            is_excel = !found_num;
+        }
+    }
+    return is_excel;
+}
+
+string etrc(string s) {
+    ll sum = 0;
+    ll cnt = 0;
+    ll n = s.length();
+    for (ll i = n - 1; i >= 0; i--) {
+        if (s[i] >= 'A' and s[i] <= 'Z') {
+            sum = sum + (s[i] - 64) * (pow(26, cnt));
+            cnt++;
+        }
+    }
+    string s1 = "R";
+    for (auto i : s) {
+        if (i >= '0' and i <= '9') {
+            s1 += i;
+        }
+    }
+    s1 += "C";
+    s1 += to_string(sum);
+    return s1;
+}
+
+string rcte(string s) {
+    string s2 = "";
+    ll n = s.length();
+    for (ll i = n - 1; i >= 0; i--) {
+        if (s[i] >= '0' and s[i] <= '9') {
+            s2 = s2 + s[i];
+        } else
+            break;
+    }
+    reverse(s2.begin(), s2.end());
+    ll num = stoi(s2);
+    string s1 = "";
+    while (num) {
+        ll x = num % 26;
+        num = num / 26;
+        if (x == 0) {
+            s1 += 'Z';
+            num--;
+        } else {
+            s1 += char(64 + x);
+        }
+    }
+    reverse(s1.begin(), s1.end()); // Reverse the string to get correct order
+    string ans = s1;
+    string s3 = "";
+    for (ll i = 1; i < n; i++) {
+        if (s[i] >= '0' and s[i] <= '9') {
+            s3 += s[i];
+        } else
+            break;
+    }
+    ans +=  s3; // Add 'R' before the numeric part
+    return ans;
+}
+
+int main() {
+
+    ll t;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> s;
+        char c = 'C';
+
+        if (determine(s)) {
+            cout << etrc(s) << endl;
+        } else {
+            cout << rcte(s) << endl;
+        }
+    }
+    return 0;
+}
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+string convertToLetters(int col) {
+    string result = "";
+    while (col > 0) {
+        col--; // Make it 0-based
+        result = char('A' + col % 26) + result;
+        col /= 26;
+    }
+    return result;
+}
+
+int convertToNumber(const string& letters) {
+    int result = 0;
+    for (char ch : letters) {
+        result = result * 26 + (ch - 'A' + 1);
+    }
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    while (n--) {
+        string s;
+        cin >> s;
+
+        if (s[0] == 'R' && isdigit(s[1])) {
+            // Format is likely RXCY
+            size_t cPos = s.find('C');
+            if (cPos != string::npos) {
+                string row = s.substr(1, cPos - 1);
+                int col = stoi(s.substr(cPos + 1));
+                cout << convertToLetters(col) << row << "\n";
+                continue;
+            }
+        }
+
+        // Otherwise, assume format is like "BC23"
+        int i = 0;
+        while (isalpha(s[i])) ++i;
+
+        string colStr = s.substr(0, i);
+        string rowStr = s.substr(i);
+
+        int col = convertToNumber(colStr);
+        cout << "R" << rowStr << "C" << col << "\n";
+    }
+
+    return 0;
+}
 #include <iostream>
 #include <string>
 using namespace std;
