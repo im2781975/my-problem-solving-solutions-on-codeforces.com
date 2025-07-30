@@ -33,112 +33,94 @@ int main(){
         mp[str]++; */
     }
 }
+#include<bits/stdc++.h>
+using namespace std;
 https://codeforces.com/problemset/problem/1/B
 // B. Spreadsheets
-#include <bits/stdc++.h>
-using namespace std;
-#define ull unsigned long long
-#define ll long long
-#define vi vector<int>
-#define vvi vector<vector<int>>
-#define vs vector<string>
-#define vll vector<ll>
-#define vvl vector<vector<ll>>
-#define vpi vector<pair<int, int>>
-#define vpl vector<pair<ll, ll>>
-#define vs vector<string>
-
-bool determine(string s) {
-    bool found_num = false, is_excel = true;
-    for (auto c : s) {
-        if ('0' <= c && c <= '9') {
-            found_num = true;
-        } else {
-            is_excel = !found_num;
-        }
-    }
-    return is_excel;
+bool determine(const string &str){
+    if(str[0] != 'R' || !(str[1] >= '0' && str[1] <= '9'))
+        return true;
+    int i = 1;
+    while(i < str.size() && isdigit(str[i]))
+        i++;
+    if(i < str.size() && str[i] == 'C')
+        return false;
+    return true;
 }
-
-string etrc(string s) {
-    ll sum = 0;
-    ll cnt = 0;
-    ll n = s.length();
-    for (ll i = n - 1; i >= 0; i--) {
-        if (s[i] >= 'A' and s[i] <= 'Z') {
-            sum = sum + (s[i] - 64) * (pow(26, cnt));
+string exToRc(const string &str){
+    int sum = 0, cnt = 0;
+    int n = str.length();
+    for(int i = n - 1; i >= 0; i--){
+        if(str[i] >= 'A' && str[i] <= 'Z'){
+            sum += (str[i] - 64) + (pow(26, cnt));
             cnt++;
         }
     }
-    string s1 = "R";
-    for (auto i : s) {
-        if (i >= '0' and i <= '9') {
-            s1 += i;
-        }
+    string ing = 'R';
+    for (auto i : str){
+        if(i >= '0' && i <= '9')
+            ing += i;
     }
-    s1 += "C";
-    s1 += to_string(sum);
-    return s1;
+    ing += 'C';
+    ing += to_string(sum);
+    return ing;
 }
-
-string rcte(string s) {
-    string s2 = "";
-    ll n = s.length();
+string exToRC(const string& s) {
+    // Converts Excel style "BC23" to RC format like "R23C55"
+    int col = 0, i = 0;
+    while (i < s.size() && isalpha(s[i])) {
+        col = col * 26 + (s[i] - 'A' + 1);
+        i++;
+    }
+    string row = s.substr(i);
+    return "R" + row + "C" + to_string(col);
+}
+string rcToEx(const string& s) {
+    // Converts RC format like "R23C55" to Excel style "BC23"
+    size_t c_pos = s.find('C');
+    long long row = stoll(s.substr(1, c_pos - 1));
+    long long col = stoll(s.substr(c_pos + 1));
+    string colStr = "";
+    while (col > 0) {
+        col--; // Decrement first to handle exact multiples of 26
+        colStr += char('A' + col % 26);
+        col /= 26;
+    }
+    reverse(colStr.begin(), colStr.end());
+    return colStr + to_string(row);
+}
+string rcToEx(const string &s) {
+    int n = s.length();
+    string colStr = "";
     for (ll i = n - 1; i >= 0; i--) {
-        if (s[i] >= '0' and s[i] <= '9') {
-            s2 = s2 + s[i];
-        } else
+        if (isdigit(s[i]))
+            colStr = s[i] + colStr;
+        else
             break;
     }
-    reverse(s2.begin(), s2.end());
-    ll num = stoi(s2);
-    string s1 = "";
-    while (num) {
-        ll x = num % 26;
-        num = num / 26;
-        if (x == 0) {
-            s1 += 'Z';
-            num--;
+    ll colNum = stoi(colStr);  // Convert column number string to integer
+    string colLetters = "";
+    while (colNum > 0) {
+        ll rem = colNum % 26;
+        if (rem == 0) {
+            colLetters += 'Z';
+            colNum = (colNum / 26) - 1;
         } else {
-            s1 += char(64 + x);
+            colLetters += char('A' + rem - 1);
+            colNum /= 26;
         }
     }
-    reverse(s1.begin(), s1.end()); // Reverse the string to get correct order
-    string ans = s1;
-    string s3 = "";
-    for (ll i = 1; i < n; i++) {
-        if (s[i] >= '0' and s[i] <= '9') {
-            s3 += s[i];
-        } else
-            break;
+    reverse(colLetters.begin(), colLetters.end());
+    string rowStr = "";
+    bool startCollecting = false;
+    for (char ch : s) {
+        if (isdigit(ch)) {
+            startCollecting = true;
+            rowStr += ch;
+        } else if (startCollecting) break; 
     }
-    ans +=  s3; // Add 'R' before the numeric part
-    return ans;
+    return colLetters + rowStr;
 }
-
-int main() {
-
-    ll t;
-    cin >> t;
-    while (t--) {
-        string s;
-        cin >> s;
-        char c = 'C';
-
-        if (determine(s)) {
-            cout << etrc(s) << endl;
-        } else {
-            cout << rcte(s) << endl;
-        }
-    }
-    return 0;
-}
-#include <iostream>
-#include <string>
-#include <cctype>
-
-using namespace std;
-
 string convertToLetters(int col) {
     string result = "";
     while (col > 0) {
@@ -148,7 +130,6 @@ string convertToLetters(int col) {
     }
     return result;
 }
-
 int convertToNumber(const string& letters) {
     int result = 0;
     for (char ch : letters) {
@@ -156,15 +137,16 @@ int convertToNumber(const string& letters) {
     }
     return result;
 }
-
-int main() {
-    int n;
-    cin >> n;
-
-    while (n--) {
+int main(){
+    int t; cin >> t;
+    while(t--){
+        string str; cin >> str;
+        if(determine(str)) cout << exToRc(str) << endl;
+        else cout << rcToEx(str) << endl;
+    }
+    while (t--) {
         string s;
         cin >> s;
-
         if (s[0] == 'R' && isdigit(s[1])) {
             // Format is likely RXCY
             size_t cPos = s.find('C');
@@ -186,8 +168,6 @@ int main() {
         int col = convertToNumber(colStr);
         cout << "R" << rowStr << "C" << col << "\n";
     }
-
-    return 0;
 }
 #include<cstdio>
 #include<cmath>
