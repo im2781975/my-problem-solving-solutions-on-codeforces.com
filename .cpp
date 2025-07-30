@@ -6,49 +6,31 @@ int main(){
     cout << ceil((double)m / a) * ceil((double)n / a);
 }
 using namespace std;
-// contest/4/problem/C
-// C. Registration system
-int main(){
-    int t; cin >> t;
-    map <string, int> mp;
-    while(t--){
-        string str; cin >> str;
-        if(mp[str] >= 1)
-            cout << str << mp[str];
-        else
-            cout << "OK";
-        mp[str]++;
-    }
-}
-using namespace std;
 https://codeforces.com/problemset/problem/4/C
 // 4C. Registration system
 int main(){
-    int n; cin>>n;
+    int t; cin >> t;
     map <string, int> mp;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < t; i++){
         string str; cin >> str;
         if(!mp[str]){
             cout << "OK" << endl;
             ++mp[str];
         }
         else{
-            cout, << str + to_string(mp[str]) << endl;
+            cout << str + to_string(mp[str]) << endl;
             ++mp[str];
         }
-    }
-}
-using namespace std;
-int main() {
-    int n; cin >> n;
-    map<string, int> database;
-    for (int i = 0; i < n; ++i) {
-        string username; cin >> username;
-        if (database[username] == 0)
+        /* if(mp[str] >= 1)
+               cout << str << mp[str];
+       else
+            cout << "OK";
+       mp[str]++; */
+       /* if(mp[str] == 0)
             cout << "OK" << endl;
         else
-            cout << username << database[username] << endl;
-        database[username]++;
+            cout << str << mp[str] << endl;
+        mp[str]++; */
     }
 }
 https://codeforces.com/problemset/problem/1/B
