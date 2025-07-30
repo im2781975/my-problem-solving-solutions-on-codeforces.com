@@ -3025,6 +3025,77 @@ int main() {
 	cout << counter;
 }
 using namespace std;
+http://codeforces.com/contest/688/problem/A
+// 688A. Opponents
+int main() {
+    int n, d; cin >> n >> d;
+    int maxConsecutive = 0, currentStreak = 0;
+    for (int i = 0; i < d; ++i) {
+        string day; cin >> day;
+        // If at least one opponent is not available (0 in string)
+        if (day.find('0') != string::npos) {
+            ++currentStreak;
+            maxConsecutive = max(maxConsecutive, currentStreak);
+        else  currentStreak = 0;
+    }
+    cout << maxConsecutive << endl;
+}
+using namespace std;
+int main(){
+    int n, d; cin >> n >> d;
+    string ref = "";
+    for(int i = 0; i < n; i++)
+        ref += '1';
+    string prv = "";
+    int count = 0;
+    vector <string> vect1;
+    vector <int> vect;
+    for(int i = 0; i < d; i++){
+        string x; cin >> x;
+        if(x == ref){
+            vect.push_back(count);
+            count = 0;
+        }
+        else ++count;
+    }
+    vect.push_back(count);
+    int len = vect.size();
+    if(len){
+        sort(vect.begin(), vect.end());
+        cout << vect[vect.size() - 1] << endl;
+    }
+    else cout << count;
+}
+using namespace std;
+http://codeforces.com/contest/688/problem/B
+// 688B. Lovely Palindromes 
+int main(){
+    string s; cin >> s;
+    string s2 = s;
+    reverse(s2.begin(), s2.end());
+    cout << s + s2;
+}
+using namespace std;
+http://codeforces.com/problemset/problem/705/A
+// 705A. Hulk
+int main() {
+    int n; cin >> n;
+    string s = "";
+    for(int i = 0; i < n; i++){
+        if(i % 2 == 0 && i != n - 1)
+            s += "I hate that ";
+        else if(i % 2 == 1 && i != n - 1)
+            s += "I love that ";
+        else if(i % 2 == 0)
+            s += "I hate ";
+        if(i % 2 == 1)
+            s += "I love ";
+    }
+    s += "it";
+    cout << s;
+ 	return 0;
+}
+using namespace std;
 // A. Brain's Photos
 // problemset/problem/707/A _ Brain has a photo represented as an n × m matrix, where each cell contains a letter representing a pixel's color.
 // Colors in the photo: Black-and-white colors: 'W' (white), 'G' (grey), 'B' (black)
@@ -3054,6 +3125,56 @@ int main() {
         cin >> arr[i];
     sort(arr, arr + 3);
     cout << arr[2] - arr[0];
+}
+using namespace std;
+http://codeforces.com/contest/732/problem/A
+// A. Buy a Shovel
+int main() {
+	int value = 0, priceMade = 0;
+	int k, r; cin >> k >> r;
+	bool flag = 1;
+	while(flag){
+        if((priceMade % 10 == 0 && priceMade != 0) || priceMade % 10 == r) break;
+        ++value;
+        priceMade += k;
+	}
+	cout << value;
+}
+using namespace std;
+int main() {
+    int k, r; cin >> k >> r;
+    int shovels = 1;
+    while (true) {
+        int total = k * shovels;
+        if (total % 10 == 0 || total % 10 == r) {
+            cout << shovels << endl;
+            break;
+        }
+        ++shovels;
+    }
+}
+using namespace std;
+https://codeforces.com/contest/734/problem/B
+// 734B. Anton and Digits
+int main(){
+    int k2, k3, k5, k6; cin >> k2 >> k3 >> k5 >> k6;
+    int num256 = min(k2, min(k6, k5));
+    int rem = k2 - num256;
+	int num32 = min(rem, k3);
+	cout << 256 * (num256 + 32) * num32;
+	
+}
+using namespace std;
+int main() {
+    int k2, k3, k5, k6; cin >> k2 >> k3 >> k5 >> k6;
+    // Count how many 256s can be made using 2, 5, and 6
+    int count256 = min({k2, k5, k6});
+    k2 -= count256;
+    // Count how many 32s can be made using remaining 2s and available 3s
+    int count32 = min(k2, k3);
+    long long total = 256LL * count256 + 32LL * count32;
+    cout << total << '\n';
+    return 0;
 }
 
 using namespace std;
