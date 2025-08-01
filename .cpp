@@ -3157,6 +3157,45 @@ int main() {
     cout << totalFaces << endl;
     return 0;
 }
+http://codeforces.com/contest/807/problem/A
+// 807-A Is it rated
+using namespace std;
+int main() {
+	int n; cin >> n;
+	int counter = 0, counter2 = 0;
+	int arr[n], arr2[n], arr3[n];
+	for(int i = 0; i < n; i++){
+	    int x, y; cin >> x >> y;
+	    cin.ignore();
+	    arr[i] = x; arr2[i] = y; arr3[i] = y;
+	}
+	for(int i = 0; i < n; i++){
+	    if(arr[i] == arr2[i])    ++counter;
+	}
+	sort(arr2, arr2 + n);
+	for(int i = n - 1, j = 0; i >= 0; i--, j++){
+	    if(arr2[i] == arr3[j])    ++counter2;
+	}
+	if(counter != n)    cout << "rated";
+	else if(counter == n && counter2 == n)    cout << "maybe";
+	else    cout << "unrated";
+ 	return 0;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    vector<int> before(n), after(n);
+    bool isRated = false;
+    bool isSorted = true;
+    for (int i = 0; i < n; ++i) {
+        cin >> before[i] >> after[i];
+        if (before[i] != after[i])    isRated = true;
+        if (i > 0 && after[i] > after[i - 1])    isSorted = false;
+    }
+    if (isRated)    cout << "rated" << endl;
+    else if (!isSorted)    cout << "unrated" << endl;
+    else    cout << "maybe" << endl;
+}
 
 using namespace std;
 http://codeforces.com/contest/828/problem/A
@@ -3211,6 +3250,258 @@ int main(){
 	}
 	cout << people;
 }
+http://codeforces.com/contest/844/problem/0
+// A. Diversity
+using namespace std;
+int main() {
+	string s; cin >> s;
+	int n; cin >> n;
+	int len = s.length();
+	set <char> sa;
+	for(int i = 0; i < len; i++)    sa.insert(s[i]);
+	if(len < n)    cout << "impossible";
+	else {
+	    int size2 = sa.size();
+	    if(size2 >= n)    cout << "0";
+	    else    cout << n - size2;
+	}
+}
+using namespace std;
+int main() {
+    string s; cin >> s;
+    int n; cin >> n;
+    int len = s.length();
+    set<char> uniqueChars(s.begin(), s.end());
+    if (len < n)    cout << "impossible" << endl;
+    else {
+        int distinctCount = uniqueChars.size();
+        cout << max(0, n - distinctCount) << endl;
+    }
+}
+http://codeforces.com/problemset/problem/854/A
+// A. Fraction
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int a = 0, b = 0;
+    int maxa = 1;
+    int z = n >> 1;
+    for(int i = 1; i < z + 1; i++){
+        bool flag = 1;
+        a = i; b = n - a;
+        for(int j = 2; j <= a; j++){
+            if(a % j == 0 && b % j == 0)    flag = 0;
+        }
+        if(flag)    maxa = max(a, maxa);
+    }
+    cout << maxa << " " << n - maxa;
+}
+using namespace std;
+int gcd(int a, int b) {
+    while (b != 0) {
+        int t = b;
+        b = a % b; a = t;
+    }
+    return a;
+}
+int main() {
+    int n; cin >> n;
+    int maxA = 1;
+    for (int a = 1; a <= n / 2; ++a) {
+        int b = n - a;
+        if (gcd(a, b) == 1)    maxA = a;
+    }
+    cout << maxA << " " << n - maxA << endl;
+}
+http://codeforces.com/problemset/problem/869/A
+// 869A. The Artful Expedient
+using namespace std;
+const int N = 1000000;
+int freq[N] = {};
+int main(){
+    int n; cin >> n;
+    int cnt = 0, arr[n], arr2[n];
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+        ++freq[arr[i]];
+    }
+    for(int i = 0; i < n; i++){
+        cin >> arr2[i];
+        ++freq[arr2[i]];
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(freq[arr[i] ^ arr[j]])    ++cnt;
+        }
+    }
+    if(cnt % 2 == 0)    cout << "karen";
+    else    cout << "koyomi";
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int a[n], b[n];
+    unordered_set<int> freq;
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+        freq.insert(a[i]);
+    }
+    for (int i = 0; i < n; ++i) {
+        cin >> b[i];
+        freq.insert(b[i]);
+    }
+    int count = 0;
+    // Count pairs (i, j) where a[i] ^ b[j] exists in input
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            if (freq.count(a[i] ^ b[j]))
+                ++count;
+    cout << (count % 2 == 0 ? "Karen" : "Koyomi") << endl;
+}
+using namespace std;
+http://codeforces.com/contest/876/problem/A
+// A. Trip For Meal
+int main() {
+    int n; cin >> n;
+    int a, b, c; cin >> a >> b >> c;
+    int x = min(a, min(b, c));
+    if(x == a || x == b || n == 1)    cout << (n - 1) * min(a, b);
+    else    cout << min(a, b) + c * (n - 2);
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int a, b, c; cin >> a >> b >> c;
+    // If only one city, no travel needed
+    if (n == 1)    cout << 0 << endl;
+    else if (n == 2) {
+        // Only one move needed, choose min of a and b
+        cout << min(a, b) << endl;
+    else {
+        // First move: min of a or b
+        // Remaining (n-2) moves: always take the cheaper round trip (min(a, b)) or two-step move (c)
+        cout << min(a, b) + (n - 2) * min({a, b, c}) << endl;
+    }
+}
+https://codeforces.com/contest/879/problem/A
+// 879A. Borya's Diagnosis
+using namespace std;
+long long theday(int s ,int d, int curday){
+    int day = 0, i = 0;
+	while(true){
+	    if((s + (i * d)) > curday){
+	        day = s + i * d;
+	        break;
+	    }
+	    ++i;
+	}
+	return day;
+}
+int main() {
+    int n; cin >> n;
+    int curday = 0;
+    int arr[n + 1] = {};
+    for(int i = 1; i <= n; i++){
+        int s, d; cin >> s >> d;
+        if(n > 1){
+            curday = theday(s, d, curday);
+            arr[i] = curday;
+        }
+        else    arr[i] = s;
+    }
+    cout << arr[n];
+}
+using namespace std;
+long long getNextAvailableDay(int s, int d, long long curDay) {
+    if (s > curDay) return s;
+    long long i = (curDay - s) / d + 1;
+    return s + i * d;
+}
+int main() {
+    int n; cin >> n;
+    int curDay = 0;
+    for (int i = 0; i < n; ++i) {
+        int s, d; cin >> s >> d;
+        curDay = getNextAvailableDay(s, d, curDay);
+    }
+    cout << curDay << endl;
+}
+https://codeforces.com/contest/879/problem/B
+// 879B. Table Tennis
+using namespace std;
+int main() {
+    int n, k; cin >> n >> k;
+    queue <int> q;
+    for (int i = 0; i < n; ++i) {
+        int x; cin >> x;
+        q.push(x);
+    }
+    int winner = q.front();
+    q.pop();
+    int wins = 0;
+    if (k >= n - 1) {
+        // The maximum will win eventually
+        int maxVal = winner;
+        while (!q.empty()) {
+            maxVal = max(maxVal, q.front());
+            q.pop();
+        }
+        cout << maxVal << endl;
+    } else {
+        while (wins < k) {
+            long long next = q.front();
+            q.pop();
+            if (winner > next) {
+                ++wins;
+                q.push(next);
+            } else {
+                q.push(winner);
+                winner = next;
+                wins = 1;
+            }
+        }
+        cout << winner << endl;
+    }
+}
+using namespace std;
+int main() {
+	 map <int, int> arr;
+	 int n, k; cin >> n >> k;
+	 int winer = 0;
+	 queue <int> q;
+	 for(int i = 0; i < n; i++){
+	     int c; cin >> c;
+	     q.push(c);
+	 }
+	 winer = q.front();
+	 q.pop();
+	 int times = 0;
+	 if(n > 2){
+	     for(int i = 0; i < 1000; i++){
+	         int value = q.front();
+	         q.pop();
+	         if(value > winer){
+	             if(times == k)    break;
+	             winer = value;
+	             times = 1;
+	             q.push(winer);
+	         }
+	         else{
+	             q.push(value);
+	             ++times;
+	             if(times == k)    break;
+	         }
+	     }
+	     cout << winer;
+	 }
+	 else {
+	     int value = q.front();
+	     q.pop();
+	     winer = max(winer, value);
+	     cout << winer;
+	 }
+}
+
 using namespace std;
 // A. Wrong Subtraction
 // problemset/problem/977/A?mobile=false
