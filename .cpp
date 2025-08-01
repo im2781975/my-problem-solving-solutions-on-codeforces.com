@@ -2929,6 +2929,36 @@ int main() {
     cout << total << '\n';
     return 0;
 }
+using namespace std;
+http://codeforces.com/contest/746/problem/B
+// B. Decoding
+int main() {
+    int len; cin >> len;
+	string s; cin >> s;
+	vector <char> vect;
+	while(len != 0){
+	    if(len % 2 == 1)    vect.push_back(s[0]);
+	    else    vect.insert(vect.begin(), s[0]);
+	}
+	s.erase(0, 1);
+	len = s.length();
+	for(int i = 0; i < vect.size(); i++)
+	    cout << vect[i] << " ";
+	return 0;
+}
+using namespace std;
+int main() {
+    int len; cin >> len;
+    string s; cin >> s;
+    deque<char> result;
+    for (int i = 0; i < len; ++i) {
+        if ((len - i) % 2 == 1)    result.push_back(s[i]);
+        else    result.push_front(s[i]);
+    }
+    for (char ch : result)
+        cout << ch;
+    return 0;
+}
 
 using namespace std;
 http://codeforces.com/contest/768/problem/A
