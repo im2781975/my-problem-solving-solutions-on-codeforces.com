@@ -2959,7 +2959,79 @@ int main() {
         cout << ch;
     return 0;
 }
-
+using namespace std;
+https://codeforces.com/problemset/problem/758/A
+// 758A - Holiday Of Equality
+int main() {
+ 	int n; cin >> n;
+	int arr[n];
+	int maxi = 0, res = 0;
+	for(int i = 0; i < n; i++){
+	    cin >> arr[i];
+	    maxi = max(arr[i], maxi);
+	}
+	for(int i = 0; i < n; i++)
+	    res += maxi - arr[i];
+	cout << res << endl;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    vector<int> arr(n);
+    int maxi = 0, answer = 0;
+    for (int i = 0; i < n; ++i){
+        cin >> arr[i];
+        maxi = max(maxi, arr[i]);
+    }
+    for (int val : arr)
+        answer += (maxi - val);
+    cout << answer << endl;
+}
+using namespace std;
+http://codeforces.com/problemset/problem/767/A
+// 767 A. Snacktower
+bool arr[100001];
+int curr = 0;
+void print(int x, int y){
+	if(x == y){
+        for(int i = y; i > 0; i--){
+		    if(arr[i]) {
+		        cout << i << " ";
+		        arr[i] = 0; curr = i - 1;
+		    }
+		    else    break;
+        }
+	}
+}
+int main(){
+    int n; cin >> n;
+    curr = n;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        arr[x] = 1;
+        print(x, curr);
+    }
+}
+using namespace std;
+const int MAXN = 100001;
+bool present[MAXN];
+void printTower(int& curr) {
+    while (curr > 0 && present[curr]) {
+        cout << curr << " ";
+        present[curr] = false;
+        --curr;
+    }
+    cout << "\n";
+}
+int main() {
+    int n; cin >> n;
+    int curr = n;
+    for (int i = 0; i < n; ++i) {
+        int x; cin >> x;
+        present[x] = true;
+        printTower(curr);
+    }
+}
 using namespace std;
 http://codeforces.com/contest/768/problem/A
 // 768A - Oath of the Night's Watch
@@ -2992,6 +3064,100 @@ int main(){
 	    counter++;
 	 cout << counter;
 }
+using namespace std;
+http://codeforces.com/contest/768/problem/A
+// A. Oath of the Night's Watch
+int main() {
+	int n; cin >> n;
+	vector <int> se;
+	int res = 0;
+	for(int i = 0; i < n; i++){
+	    int x; cin >> x;
+	    se.push_back(x);
+	}
+	sort(se.begin(), se.end());
+	int min = se[0], max = se[n - 1];
+	for(int i = 0; i < n; i++){
+	    if(se[i] > min && se[i] < max)    res++;
+	}
+	cout << res;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    vector <int> se(n);
+    for (int i = 0; i < n; ++i)
+        cin >> se[i];
+    sort(se.begin(), se.end());
+    int minVal = se.front();
+    int maxVal = se.back();
+    int answer = 0;
+    for (int x : se) {
+        if (x > minVal && x < maxVal) {
+            ++answer;
+        }
+    }
+    cout << answer << endl;
+    return 0;
+}
+using namespace std;
+https://codeforces.com/contest/770/problem/A
+// 770A. New Password
+int main() {
+    string s = "abcdefghijklmnopqrstuvwxyz";
+    string res = "";
+    int n, k; cin >> n >> k;
+    for(int i = 0; i < n; i++)
+        res += s[i % k];
+    cout << res;
+}
+using namespace std;
+int main() {
+    int n, k; cin >> n >> k;
+    string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    string password;
+    for (int i = 0; i < n; ++i)
+        password += alphabet[i % k];
+    cout << password << endl;
+    return 0;
+}
+using namespace std;
+https://codeforces.com/problemset/problem/785/A
+// 785A. Anton and Polyhedrons
+int main() {
+    int n; cin >> n;
+    map <string, int> mp;
+    mp["Tetrahedron"] = 4;
+    mp["Cube"] = 6;
+    mp["Octahedron"]=8;
+    mp["Dodecahedron"] = 12;
+    mp["Icosahedron"] = 20;
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+        string str; cin >> str;
+        sum += mp[str];
+    }
+    cout << sum;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    map<string, int> faceCount = {
+        {"Tetrahedron", 4},
+        {"Cube", 6},
+        {"Octahedron", 8},
+        {"Dodecahedron", 12},
+        {"Icosahedron", 20}
+    };
+    long long totalFaces = 0;
+    for (int i = 0; i < n; ++i) {
+        string polyhedron; cin >> polyhedron;
+        totalFaces += faceCount[polyhedron];
+    }
+    cout << totalFaces << endl;
+    return 0;
+}
+
 using namespace std;
 http://codeforces.com/contest/828/problem/A
 // Restaurant.cpp
