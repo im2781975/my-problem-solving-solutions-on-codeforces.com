@@ -1075,6 +1075,30 @@ int main(){
     }
     cout << cnt;
 }
+http://codeforces.com/problemset/problem/158/A
+// A.Next_Round
+using namespace std;
+int main() {
+    int n, k; cin >> n >> k;
+    int scores[51];
+    for (int i = 0; i < n; i++)    cin >> scores[i];
+    int threshold = scores[k - 1];
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (scores[i] >= threshold && scores[i] > 0)    count++;
+    }
+    cout << count << endl;
+}
+using namespace std;
+int main(){
+    int n, k; cin >> n >> k;
+    int counter = 0, arr[51];
+    for(int i = 0; i < n; i++)    cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        if(arr[i] >= arr[k - 1] && arr[i] != 0)    counter += 1;
+    }
+    cout << counter;
+}
 using namespace std;
 http://codeforces.com/contest/160/problem/A
 // A.Twins
@@ -1601,6 +1625,30 @@ int main() {
     }
     cout << moves << endl;
     return 0;
+}
+http://codeforces.com/problemset/problem/344/A
+// A. Magnets
+using namespace std;
+int main(){
+    int magnets; cin >> magnets;
+    int counter = 1, arr[100000];
+    for(int i = 0; i < magnets; i++)    cin >> arr[i];
+    for(int i = 0; i < magnets - 1; i++){
+        if(arr[i] != arr[i + 1])    counter++;
+    }
+    cout << counter;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int groups = 1;
+    string prev, curr; cin >> prev;
+    for (int i = 1; i < n; i++) {
+        cin >> curr;
+        if (curr != prev)    groups++;
+        prev = curr;
+    }
+    cout << groups << endl;
 }
 http://codeforces.com/contest/363/problem/B
 // B. Fence
