@@ -2100,6 +2100,30 @@ int main() {
 	}
 	cout << sum;
 }
+http://codeforces.com/contest/443/problem/A
+// Anton_and_Letters.cpp
+using namespace std;
+int main() {
+    string s; getline(cin,s);
+	set <char> letters;
+	int len = s.length();
+	for(int i = 0; i < len; i++){
+        if(s[i] == ',' || s[i] == '{' || s[i] == '}' || s[i] == ' ');
+        else    letters.insert(s[i]);
+	}
+	cout << letters.size();
+}
+using namespace std;
+int main() {
+    string input; getline(cin, input);
+    set<char> uniqueLetters;
+    for (char ch : input) {
+        if (isalpha(ch)) {
+            uniqueLetters.insert(ch);
+        }
+    }
+    cout << uniqueLetters.size() << endl;
+}
 using namespace std;
 http://codeforces.com/problemset/problem/451/A
 // 451A - Game With Sticks
@@ -3102,6 +3126,35 @@ int main() {
     long long total = 256LL * count256 + 32LL * count32;
     cout << total << '\n';
     return 0;
+}
+https://codeforces.com/problemset/problem/734/A
+// Anton_and_Danik.cpp
+using namespace std;
+int main() {
+    int n; cin >> n;
+    string s; cin >> s;
+    int antonWins = count(s.begin(), s.end(), 'A');
+    int danikWins = n - antonWins;
+    if (antonWins > danikWins)    cout << "Anton";
+    else if (danikWins > antonWins)    cout << "Danik";
+    else    cout << "Friendship";
+}
+using namespace std;
+int main() {
+	int n; cin >> n;
+	string s; cin >> s;
+	int x = count(s.begin(), s.end(), 'A');
+	int y = count(s.begin(), s.end(), 'D');
+	if(x>y)
+		cout<<"Anton";
+	else if(y>x)
+		cout<<"Danik";
+	else if(x==y){
+		cout<<"Friendship";
+	}
+	if(x > y)    cout << "Anton";
+	else(y > x)    cout << "Danik";
+	else if(x == y)    cout << "Friendship";
 }
 using namespace std;
 http://codeforces.com/contest/746/problem/B
