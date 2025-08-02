@@ -567,6 +567,44 @@ int main() {
 		else cout << s << '\n';
 	}
 }
+https://codeforces.com/contest/75/problem/A
+// A. Life Without Zeros
+using namespace std;
+int removezero(int a){
+	string s = to_string(a);
+	string s2;
+	int n = s.length();
+	for(int i = 0; i < n; i++){
+	    if(s[i] != '0')    s2 += s[i];
+	}
+	return stoll(s2);
+}
+int main() {
+	int a, b; cin >> a >> b;
+	int result1 = a + b;
+	int newa = removezero(a);
+	int newb = removezero(b);
+	int result2 = removezero(result1);
+	if((newa + newb) == result2)    cout << "Yes";
+	else    cout << "No";
+}
+using namespace std;
+long long removeZeros(long long num) {
+    string s = to_string(num), res;
+    for (char c : s) {
+        if (c != '0') res += c;
+    }
+    return stoll(res);
+}
+int main() {
+    long long a, b; cin >> a >> b;
+    long long sum = a + b;
+    long long aNoZero = removeZeros(a);
+    long long bNoZero = removeZeros(b);
+    long long sumNoZero = removeZeros(sum);
+    if (aNoZero + bNoZero == sumNoZero)    cout << "YES\n";
+    else    cout << "NO\n";
+}
 using namespace std;
 // contest/102/problem/B
 // B. Sum of Digits
