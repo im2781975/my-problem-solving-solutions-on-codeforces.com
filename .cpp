@@ -606,6 +606,94 @@ int main() {
     else    cout << "NO\n";
 }
 using namespace std;
+http://codeforces.com/problemset/problem/80/A
+// 80A - Panoramix's Prediction
+const int N = 55;
+bool primecheck[N];
+void seive(){
+    primecheck[0] = 1; primecheck[1] = 1;
+    for(int i = 2; i <= N; i++){
+        if(primecheck[i])    continue;
+        for(int j = i * i; j <= N; j += i)    primecheck[j] = 1;
+    }
+}
+int nextprime(int n){
+    int num = 0;
+    for(int i = n + 1; i < N; i++){
+        if(!primecheck[i]){
+            num = i;
+            break;
+        }
+    }
+    return num;
+}
+int main(){
+    sieve();
+    int n, m; cin >> n >> m;
+    int x = nextprime(n);
+    if(x == m)    cout << "Yes";
+    else    cout << "No";
+}
+using namespace std;
+const int N = 55;
+bool isNotPrime[N];
+void sieve() {
+    isNotPrime[0] = isNotPrime[1] = true;
+    for (int i = 2; i * i < N; ++i) {
+        if (!isNotPrime[i]) {
+            for (int j = i * i; j < N; j += i)
+                isNotPrime[j] = true;
+        }
+    }
+}
+// Find the next prime greater than n
+int nextPrime(int n) {
+    for (int i = n + 1; i < N; ++i) {
+        if(!isNotPrime[i])    return i;
+    }
+    return -1;
+}
+int main(){
+    sieve();
+    int n, m; cin >> n >> m;
+    int next = nextPrime(n);
+    if (next == m)    cout << "YES\n";
+    else    cout << "NO\n";
+}
+http://codeforces.com/problemset/problem/96/A
+// A. Football
+using namespace std;
+int main() {
+    string s; cin >> s;
+	int len = s.length();
+	bool flag = 0;
+	for(int i = 0; i < len; i++){
+        int ones = count(s.begin() + i, s.begin() + i + 7, '1');
+		int zeros = count(s.begin() + i, s.begin() + i + 7, '0');
+		if(ones >= 7 || zeros >= 7)    flag = 1;
+	}
+	cout << (flag ? "Yes" : "NO");
+	return 0;
+}
+using namespace std;
+int main() {
+    string s; cin >> s;
+    int count = 1;
+    bool danger = false;
+    for (size_t i = 1; i < s.size(); ++i) {
+        if (s[i] == s[i - 1]) {
+            count++;
+            if (count >= 7) {
+                danger = true;
+                break;
+            }
+        }
+        else    count = 1;
+    }
+    cout << (danger ? "YES" : "NO") << endl;
+}
+
+using namespace std;
 // contest/102/problem/B
 // B. Sum of Digits
 int main(){
